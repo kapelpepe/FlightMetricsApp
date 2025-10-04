@@ -6,16 +6,53 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct ContentView: View {
+    @State private var isRunning = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(isRunning ? "W trakcie lotu" : "Lot zakonczony")
+            Button(isRunning ? "STOP" : "START") {
+                if isRunning == true {
+                    let randomNumber = Int.random(in: 1...100)
+                    
+                    if WCSession.default.isReachable {
+                        WCSession.default.sendMessage(
+                            ["random": randomNumber],
+                            replyHandler: nil,
+                            errorHandler: { error in print("Błąd wysyłania", error.localizedDescription)
+                            }
+                        )
+                    }
+                }
+                isRunning.toggle()
+            }
         }
         .padding()
+        .onAppear {
+            _ = WatchSession.shared
+        }
+    }
+}
+
+class WatchSession: NSObject, WCSessionDelegate {
+    
+    static let shared = WatchSession()
+    var onNumberReceived: ((Int)->Void)?
+    
+    private override init() {
+        super.init()
+        if WCSession.isSupported(){
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
+    }
+    
+    func session(_ session: WCSession, 
+                 activationDidCompleteWith activationState: WCSessionActivationState,
+                 error: (any Error)?) {
     }
 }
 
