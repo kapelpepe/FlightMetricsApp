@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  WatchContentView.swift
 //  FlightMetricsAppWatch Watch App
 //
 //  Created by Kacper Gwiazda on 04/10/2025.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WatchConnectivity
 
-struct ContentView: View {
+struct WatchContentView: View {
     @State private var isRunning = false
     
     var body: some View {
@@ -57,5 +57,5 @@ class WatchSession: NSObject, WCSessionDelegate {
 }
 
 #Preview {
-    ContentView()
+    WatchContentView()
 }

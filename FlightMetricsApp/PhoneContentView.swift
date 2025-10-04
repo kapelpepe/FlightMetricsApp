@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PhoneContentView.swift
 //  FlightMetricsApp
 //
 //  Created by Kacper Gwiazda on 04/10/2025.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WatchConnectivity
 
-struct ContentView: View {
+struct PhoneContentView: View {
     @State private var receivedNumber: Int? = nil
     
     var body: some View {
@@ -64,5 +64,5 @@ class PhoneSession: NSObject, WCSessionDelegate {
 }
 
 #Preview {
-    ContentView()
+    PhoneContentView()
 }
