@@ -145,6 +145,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2344FB9C2E9D52B300E010F9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2344FB9D2E9D52D700E010F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B9EF98F2E915C3900728123 /* PhoneContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2344FB9E2E9D530000E010F9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2344FB9F2E9D531100E010F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2344FBA02E9D531800E010F9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2344FBA12E9D532800E010F9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3B9EF9BD2E9168D000728123 /* FlightMetricsAppWatchApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2344FBA22E9D533900E010F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B9EF9BF2E9168D000728123 /* WatchContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2344FBA32E9D534300E010F9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2344FBA42E9D534E00E010F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3B9EF9812E915C3900728123 = {
 			isa = PBXGroup;
 			children = (
@@ -174,8 +241,11 @@
 		3B9EF98C2E915C3900728123 /* FlightMetricsApp */ = {
 			isa = PBXGroup;
 			children = (
-				3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */,
-				3B9EF98F2E915C3900728123 /* PhoneContentView.swift */,
+				2344FBA02E9D531800E010F9 /* Shared */,
+				2344FB9F2E9D531100E010F9 /* Models */,
+				2344FB9E2E9D530000E010F9 /* Managers */,
+				2344FB9C2E9D52B300E010F9 /* App */,
+				2344FB9D2E9D52D700E010F9 /* Views */,
 				3B9EF9912E915C3C00728123 /* Assets.xcassets */,
 				3B9EF9932E915C3C00728123 /* Preview Content */,
 			);
@@ -210,8 +280,10 @@
 		3B9EF9BC2E9168D000728123 /* FlightMetricsAppWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				3B9EF9BD2E9168D000728123 /* FlightMetricsAppWatchApp.swift */,
-				3B9EF9BF2E9168D000728123 /* WatchContentView.swift */,
+				2344FBA12E9D532800E010F9 /* App */,
+				2344FBA42E9D534E00E010F9 /* Models */,
+				2344FBA32E9D534300E010F9 /* Managers */,
+				2344FBA22E9D533900E010F9 /* Views */,
 				3B9EF9C12E9168D300728123 /* Assets.xcassets */,
 				3B9EF9C32E9168D300728123 /* Preview Content */,
 			);
