@@ -37,25 +37,6 @@ struct WatchContentView: View {
     }
 }
 
-class WatchSession: NSObject, WCSessionDelegate {
-    
-    static let shared = WatchSession()
-    var onNumberReceived: ((Int)->Void)?
-    
-    private override init() {
-        super.init()
-        if WCSession.isSupported(){
-            WCSession.default.delegate = self
-            WCSession.default.activate()
-        }
-    }
-    
-    func session(_ session: WCSession, 
-                 activationDidCompleteWith activationState: WCSessionActivationState,
-                 error: (any Error)?) {
-    }
-}
-
 #Preview {
     WatchContentView()
 }

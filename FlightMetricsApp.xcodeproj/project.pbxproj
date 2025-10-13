@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA52E9D57D300E010F9 /* PhoneSession.swift */; };
+		2344FBA82E9D586B00E010F9 /* WatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA72E9D586B00E010F9 /* WatchSession.swift */; };
 		3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */; };
 		3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98F2E915C3900728123 /* PhoneContentView.swift */; };
 		3B9EF9922E915C3C00728123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9912E915C3C00728123 /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2344FBA52E9D57D300E010F9 /* PhoneSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSession.swift; sourceTree = "<group>"; };
+		2344FBA72E9D586B00E010F9 /* WatchSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSession.swift; sourceTree = "<group>"; };
 		3B9EF98A2E915C3900728123 /* FlightMetricsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightMetricsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppApp.swift; sourceTree = "<group>"; };
 		3B9EF98F2E915C3900728123 /* PhoneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContentView.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 		2344FB9E2E9D530000E010F9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				2344FBA52E9D57D300E010F9 /* PhoneSession.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 		2344FBA32E9D534300E010F9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				2344FBA72E9D586B00E010F9 /* WatchSession.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 			files = (
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
 				3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */,
+				2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +572,7 @@
 			files = (
 				3B9EF9C02E9168D000728123 /* WatchContentView.swift in Sources */,
 				3B9EF9BE2E9168D000728123 /* FlightMetricsAppWatchApp.swift in Sources */,
+				2344FBA82E9D586B00E010F9 /* WatchSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
