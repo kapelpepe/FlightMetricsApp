@@ -6,11 +6,14 @@
 //
 
 import Foundation
-import CoreLocation
+import CoreLocation // framework do obslugi modulu GPS
+import CoreMotion // framework do obslugi m.in. barometru
 
 class SensorManager: NSObject, ObservableObject {
     static let shared = SensorManager() // singleton
     private let locationManager = CLLocationManager()
+    private let barometer = CMAltimeter()
+    @Published var currentPressure: Double? = nil
     private var currentFlightData: [FlightData] = []
     private var isTracking = false
     
@@ -26,13 +29,27 @@ class SensorManager: NSObject, ObservableObject {
         isTracking = true
         currentFlightData.removeAll()
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation() // start GPS
+        
+        if CMAltimeter.isRelativeAltitudeAvailable() { // start barometru
+            barometer.startRelativeAltitudeUpdates(to: .main) { [weak self] data, error in guard let self = self, let data = data, error == nil else { return }
+                let pressure = data.pressure.doubleValue * 10  // hPa
+                self.currentPressure = pressure
+                
+                if self.isTracking, var last = self.currentFlightData.last {
+                    last.pressure = pressure
+                    last.relativeAltitude = data.relativeAltitude.doubleValue
+                    self.currentFlightData[self.currentFlightData.count - 1] = last
+                }
+            }
+        }
     }
     
     func stopTracking() -> URL? { // stop trackingu
         guard isTracking else { return nil }
         isTracking = false
         locationManager.stopUpdatingLocation()
+        barometer.stopRelativeAltitudeUpdates()
         let fileURL = saveDataToJSON()
         return fileURL
     }
