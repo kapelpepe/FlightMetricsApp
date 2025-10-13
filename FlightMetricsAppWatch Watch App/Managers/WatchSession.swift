@@ -11,7 +11,6 @@ import WatchConnectivity
 class WatchSession: NSObject, WCSessionDelegate {
     
     static let shared = WatchSession()
-    var onNumberReceived: ((Int)->Void)?
     
     private override init() {
         super.init()
@@ -21,8 +20,14 @@ class WatchSession: NSObject, WCSessionDelegate {
         }
     }
     
-    func session(_ session: WCSession,
-                 activationDidCompleteWith activationState: WCSessionActivationState,
-                 error: (any Error)?) {
+    func sendFlightFileIfPossible(_ fileURL: URL) {
+        guard WCSession.default.isReachable else {
+            print("Telefon nie zostal znaleziony")
+            return
+        }
+        WCSession.default.transferFile(fileURL, metadata: ["type": "flightData"])
+        print("Wysylam dane → \(fileURL.lastPathComponent)")
     }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {}
 }

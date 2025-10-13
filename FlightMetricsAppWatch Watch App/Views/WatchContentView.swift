@@ -15,17 +15,12 @@ struct WatchContentView: View {
         VStack {
             Text(isRunning ? "W trakcie lotu" : "Lot zakonczony")
             Button(isRunning ? "STOP" : "START") {
-                if isRunning == true {
-                    let randomNumber = Int.random(in: 1...100)
-                    
-                    if WCSession.default.isReachable {
-                        WCSession.default.sendMessage(
-                            ["random": randomNumber],
-                            replyHandler: nil,
-                            errorHandler: { error in print("Błąd wysyłania", error.localizedDescription)
-                            }
-                        )
+                if isRunning {
+                    if let fileURL = SensorManager.shared.stopTracking() {
+                        WatchSession.shared.sendFlightFileIfPossible(fileURL)
                     }
+                } else {
+                    SensorManager.shared.startTracking()
                 }
                 isRunning.toggle()
             }
