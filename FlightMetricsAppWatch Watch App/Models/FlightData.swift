@@ -17,6 +17,7 @@ struct FlightData: Codable, Identifiable {
     let speedKnots: Double // predkosc pobierana z GPS w m/s (konwertowana ponizej)
     var pressure: Double? // cisnienie z barometru w hPa (moze byc nil przed rozpoczeciem dzialania czujnika - barometr dziala w trybie asynchronicznym)
     var relativeAltitude: Double? // wysokosc wzgledna (po starcie) pobierana z barometru
+    var heartRateBPM: Double? // wartosc tetna w BPM pobrana z czujnika tetna
     
     init(from location: CLLocation) {
         self.timestamp = Date()
@@ -24,7 +25,8 @@ struct FlightData: Codable, Identifiable {
         self.longitude = location.coordinate.longitude
         self.altitudeMeters = location.altitude
         self.speedKnots = location.speed * 1.94384 // konwersja na węzły
-        pressure = nil
-        relativeAltitude = nil
+        self.pressure = nil
+        self.relativeAltitude = nil
+        self.heartRateBPM = nil
     }
 }
