@@ -7,17 +7,21 @@
 
 import Foundation
 import CoreLocation // framework do obslugi modulu GPS
-import CoreMotion // framework do obslugi m.in. barometru
+import CoreMotion // framework do obslugi barometru, akcelometru i zyroskopu
 import HealthKit // framework do obslugi czujnika tetna
 
 class SensorManager: NSObject, ObservableObject {
     static let shared = SensorManager() // singleton
+    
     private let locationManager = CLLocationManager()
     private let barometer = CMAltimeter()
     private let healthStore = HKHealthStore()
+    private let motionManager = CMMotionManager()
     
     @Published var currentPressure: Double? = nil
     @Published var currentHeartRate: Double? = nil
+    @Published var accelerometerData: CMAccelerometerData? = nil
+    @Published var gyroData: CMGyroData? = nil
     
     private var currentFlightData: [FlightData] = []
     private var isTracking = false
@@ -47,19 +51,9 @@ class SensorManager: NSObject, ObservableObject {
         currentFlightData.removeAll()
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // start GPS
-        
-        if CMAltimeter.isRelativeAltitudeAvailable() { // start barometru
-            barometer.startRelativeAltitudeUpdates(to: .main) { [weak self] data, error in guard let self = self, let data = data, error == nil else { return }
-                let pressure = data.pressure.doubleValue * 10  // hPa
-                self.currentPressure = pressure
-                
-                if self.isTracking, var last = self.currentFlightData.last {
-                    last.pressure = pressure
-                    last.relativeAltitude = data.relativeAltitude.doubleValue
-                    self.currentFlightData[self.currentFlightData.count - 1] = last
-                }
-            }
-        }
+        startBarometer() // start barometru
+        startHeartRateQuery() // start pomiaru tetna
+        startIMU() // start IMU
     }
     
     func stopTracking() -> URL? { // stop trackingu
@@ -67,6 +61,7 @@ class SensorManager: NSObject, ObservableObject {
         isTracking = false
         locationManager.stopUpdatingLocation()
         barometer.stopRelativeAltitudeUpdates()
+        stopIMU()
         
         if let query = heartRateQuery {
             healthStore.stop(query)
@@ -93,6 +88,25 @@ class SensorManager: NSObject, ObservableObject {
         } catch {
             print("Błąd zapisu JSON: \(error)")
             return nil
+        }
+    }
+    
+    // OBSLUGA BAROMETRU
+    
+    private func startBarometer() {
+        guard CMAltimeter.isRelativeAltitudeAvailable() else { return }
+        
+        barometer.startRelativeAltitudeUpdates(to: .main) { [weak self] data, error in
+            guard let self = self, let data = data, error == nil else { return }
+            
+            let pressure = data.pressure.doubleValue * 10  // hPa
+            self.currentPressure = pressure
+            
+            if self.isTracking, var last = self.currentFlightData.last {
+                last.pressure = pressure
+                last.relativeAltitude = data.relativeAltitude.doubleValue
+                self.currentFlightData[self.currentFlightData.count - 1] = last
+            }
         }
     }
     
@@ -126,15 +140,72 @@ class SensorManager: NSObject, ObservableObject {
             }
         }
     }
+    
+    // OBSLUGA IMU (AKCELEROMETR + ZYROSKOP)
+    
+    private func startIMU() {
+        guard motionManager.isAccelerometerAvailable || motionManager.isGyroAvailable else { return }
+        
+        motionManager.accelerometerUpdateInterval = 1.0 / 50.0 // 50 Hz
+        motionManager.gyroUpdateInterval = 1.0 / 50.0 // 50 Hz
+        
+        if motionManager.isAccelerometerAvailable {
+            motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
+                guard let self = self, let data = data, error == nil else { return }
+                self.accelerometerData = data
+                
+                if self.isTracking, var last = self.currentFlightData.last {
+                    last.ax = data.acceleration.x
+                    last.ay = data.acceleration.y
+                    last.az = data.acceleration.z
+                    self.currentFlightData[self.currentFlightData.count - 1] = last
+                }
+            }
+        }
+        
+        if motionManager.isGyroAvailable {
+            motionManager.startGyroUpdates(to: .main) { [weak self] data, error in
+                guard let self = self, let data = data, error == nil else { return }
+                self.gyroData = data
+                
+                if self.isTracking, var last = self.currentFlightData.last {
+                    last.gx = data.rotationRate.x
+                    last.gy = data.rotationRate.y
+                    last.gz = data.rotationRate.z
+                    self.currentFlightData[self.currentFlightData.count - 1] = last
+                }
+            }
+        }
+    }
+    
+    private func stopIMU() {
+        if motionManager.isAccelerometerActive { motionManager.stopAccelerometerUpdates() }
+        if motionManager.isGyroActive { motionManager.stopGyroUpdates() }
+    }
 }
 
 extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o protokol stosowany do aktualizowania lokalizacji
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard isTracking else { return }
+        
         guard let location = locations.last, location.horizontalAccuracy > 0 else { return }
         
         var newData = FlightData(from: location)
+        
         newData.heartRateBPM = currentHeartRate
+        
+        if let acc = accelerometerData {
+            newData.ax = acc.acceleration.x
+            newData.ay = acc.acceleration.y
+            newData.az = acc.acceleration.z
+        }
+        
+        if let gyro = gyroData {
+            newData.gx = gyro.rotationRate.x
+            newData.gy = gyro.rotationRate.y
+            newData.gz = gyro.rotationRate.z
+        }
+        
         currentFlightData.append(newData)
     }
 }
