@@ -11,6 +11,7 @@
 		2344FBA82E9D586B00E010F9 /* WatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA72E9D586B00E010F9 /* WatchSession.swift */; };
 		2344FBAA2E9D5BEB00E010F9 /* SensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA92E9D5BEB00E010F9 /* SensorManager.swift */; };
 		2344FBAC2E9D5C0B00E010F9 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */; };
+		236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */; };
 		3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */; };
 		3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98F2E915C3900728123 /* PhoneContentView.swift */; };
 		3B9EF9922E915C3C00728123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9912E915C3C00728123 /* Assets.xcassets */; };
@@ -186,13 +187,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		2344FBA02E9D531800E010F9 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		2344FBA12E9D532800E010F9 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,12 +212,12 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		2344FBA42E9D534E00E010F9 /* Models */ = {
+		2344FBA42E9D534E00E010F9 /* SharedModels */ = {
 			isa = PBXGroup;
 			children = (
 				2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */,
 			);
-			path = Models;
+			path = SharedModels;
 			sourceTree = "<group>";
 		};
 		3B9EF9812E915C3900728123 = {
@@ -256,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				23533A942EA95D9700D155EC /* FlightMetricsApp.entitlements */,
-				2344FBA02E9D531800E010F9 /* Shared */,
 				2344FB9F2E9D531100E010F9 /* Models */,
 				2344FB9E2E9D530000E010F9 /* Managers */,
 				2344FB9C2E9D52B300E010F9 /* App */,
@@ -297,7 +290,7 @@
 			children = (
 				23533A952EA95E7900D155EC /* FlightMetricsAppWatch Watch App.entitlements */,
 				2344FBA12E9D532800E010F9 /* App */,
-				2344FBA42E9D534E00E010F9 /* Models */,
+				2344FBA42E9D534E00E010F9 /* SharedModels */,
 				2344FBA32E9D534300E010F9 /* Managers */,
 				2344FBA22E9D533900E010F9 /* Views */,
 				3B9EF9C12E9168D300728123 /* Assets.xcassets */,
@@ -556,6 +549,7 @@
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
 				3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */,
 				2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */,
+				236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

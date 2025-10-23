@@ -46,9 +46,26 @@ class SensorManager: NSObject, ObservableObject {
     }
     
     func startTracking() { // start trackingu
+        print("test")
         guard !isTracking else { return }
         isTracking = true
         currentFlightData.removeAll()
+        
+        // MOCK - dane testowe
+        let mockLocation = CLLocation(latitude: 52.2297, longitude: 21.0122) // Warszawa
+        var firstData = FlightData(from: mockLocation)
+        firstData.ax = 0.0
+        firstData.ay = 0.0
+        firstData.az = 0.0
+        firstData.gx = 0.0
+        firstData.gy = 0.0
+        firstData.gz = 0.0
+        firstData.heartRateBPM = 70
+        firstData.pressure = 1013
+        firstData.relativeAltitude = 10
+        
+        currentFlightData.append(firstData)
+        
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // start GPS
         startBarometer() // start barometru
@@ -84,9 +101,10 @@ class SensorManager: NSObject, ObservableObject {
             let fileURL = folder.appendingPathComponent(filename)
             
             try data.write(to: fileURL)
+            print("JSON poprawnie zapisany")
             return fileURL
         } catch {
-            print("Błąd zapisu JSON: \(error)")
+            print("Błąd zapisu JSON")
             return nil
         }
     }

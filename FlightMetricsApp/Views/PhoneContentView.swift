@@ -9,22 +9,44 @@ import SwiftUI
 import WatchConnectivity
 
 struct PhoneContentView: View {
-    @State private var receivedNumber: Int? = nil
+    @State private var receivedData: [FlightData] = []
     
     var body: some View {
-        VStack {
-            Text("Odebrany numerek:")
-                .bold()
-            if let number = receivedNumber {
-                Text("\(number)")
-            } else {
-                Text("Brak numerka, wygeneruj przez zegarek")
+        ScrollView {
+            VStack(alignment: .leading, spacing: 8) {
+                if receivedData.isEmpty {
+                    Text("Brak danych - uruchom tracking na zegarku")
+                } else {
+                    Text("Odebrano \(receivedData.count) rekordów")
+                        .bold()
+                    ForEach(receivedData.prefix(10), id: \.timestamp) { data in
+                        let timestampInt = Int(data.timestamp.timeIntervalSince1970)
+                        Text("""
+                        t=\(timestampInt)
+                        hr=\(Int(data.heartRateBPM ?? 0))
+                        p=\(Int(data.pressure ?? 0))
+                        relAlt=\(Int(data.relativeAltitude ?? 0))
+                        lat=\(data.latitude)
+                        lon=\(data.longitude)
+                        alt=\(Int(data.altitudeMeters))
+                        speed=\(Int(data.speedKnots))
+                        ax=\(data.ax ?? 0)
+                        ay=\(data.ay ?? 0)
+                        az=\(data.az ?? 0)
+                        gx=\(data.gx ?? 0)
+                        gy=\(data.gy ?? 0)
+                        gz=\(data.gz ?? 0)
+                        """)
+                        .font(.system(size: 12, design: .monospaced))
+                        .padding(.bottom, 4)
+                    }
+                }
             }
+            .padding()
         }
-        .padding()
         .onAppear {
-            PhoneSession.shared.onNumberReceived = {
-                number in receivedNumber = number
+            PhoneSession.shared.onFlightDataReceived = { data in
+                receivedData = data
             }
         }
     }

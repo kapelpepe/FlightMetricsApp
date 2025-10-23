@@ -20,13 +20,27 @@ class WatchSession: NSObject, WCSessionDelegate {
         }
     }
     
-    func sendFlightFileIfPossible(_ fileURL: URL) {
-        guard WCSession.default.isReachable else {
-            print("Telefon nie zostal znaleziony")
+    // DLA TESTOW - transferFile nie dziala na symulatorze
+    
+    /*func sendFlightFileIfPossible(_ fileURL: URL) {
+        let session = WCSession.default
+        guard session.activationState == .activated else {
+            print("WCSession nieaktywna")
             return
         }
-        WCSession.default.transferFile(fileURL, metadata: ["type": "flightData"])
-        print("Wysylam dane → \(fileURL.lastPathComponent)")
+
+        print("WatchSession: transferFile")
+        session.transferFile(fileURL, metadata: nil)
+    }*/
+    
+    func sendFlightFileIfPossible(_ fileURL: URL) {
+        do {
+            let data = try Data(contentsOf: fileURL)
+            try WCSession.default.updateApplicationContext(["flightData": data])
+            print("Wysylam dane")
+        } catch {
+            print("Błąd wysyłania danych")
+        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {}

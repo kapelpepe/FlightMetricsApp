@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct FlightMetricsAppApp: App {
+    
+    init() {
+        _ = PhoneSession.shared
+    }
+    
     var body: some Scene {
         WindowGroup {
             PhoneContentView()

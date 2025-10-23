@@ -16,10 +16,12 @@ struct WatchContentView: View {
             Text(isRunning ? "W trakcie lotu" : "Lot zakonczony")
             Button(isRunning ? "STOP" : "START") {
                 if isRunning {
+                    print("skonczone")
                     if let fileURL = SensorManager.shared.stopTracking() {
                         WatchSession.shared.sendFlightFileIfPossible(fileURL)
                     }
                 } else {
+                    print("w trakcie")
                     SensorManager.shared.startTracking()
                 }
                 isRunning.toggle()
