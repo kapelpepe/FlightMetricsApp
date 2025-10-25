@@ -11,6 +11,9 @@
 		2344FBA82E9D586B00E010F9 /* WatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA72E9D586B00E010F9 /* WatchSession.swift */; };
 		2344FBAA2E9D5BEB00E010F9 /* SensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA92E9D5BEB00E010F9 /* SensorManager.swift */; };
 		2344FBAC2E9D5C0B00E010F9 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */; };
+		236B28A02EAD499A008112BD /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236B289F2EAD499A008112BD /* PersistenceController.swift */; };
+		236B28A22EAD4A13008112BD /* FlightRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236B28A12EAD4A13008112BD /* FlightRecord.swift */; };
+		236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 236B28A32EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld */; };
 		236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */; };
 		3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */; };
 		3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98F2E915C3900728123 /* PhoneContentView.swift */; };
@@ -88,6 +91,9 @@
 		2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightData.swift; sourceTree = "<group>"; };
 		23533A942EA95D9700D155EC /* FlightMetricsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlightMetricsApp.entitlements; sourceTree = "<group>"; };
 		23533A952EA95E7900D155EC /* FlightMetricsAppWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FlightMetricsAppWatch Watch App.entitlements"; sourceTree = "<group>"; };
+		236B289F2EAD499A008112BD /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		236B28A12EAD4A13008112BD /* FlightRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRecord.swift; sourceTree = "<group>"; };
+		236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightMetricsApp.xcdatamodel; sourceTree = "<group>"; };
 		3B9EF98A2E915C3900728123 /* FlightMetricsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightMetricsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppApp.swift; sourceTree = "<group>"; };
 		3B9EF98F2E915C3900728123 /* PhoneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				2344FBA52E9D57D300E010F9 /* PhoneSession.swift */,
+				236B289F2EAD499A008112BD /* PersistenceController.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -183,6 +190,7 @@
 		2344FB9F2E9D531100E010F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				236B28A12EAD4A13008112BD /* FlightRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 				2344FB9D2E9D52D700E010F9 /* Views */,
 				3B9EF9912E915C3C00728123 /* Assets.xcassets */,
 				3B9EF9932E915C3C00728123 /* Preview Content */,
+				236B28A32EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld */,
 			);
 			path = FlightMetricsApp;
 			sourceTree = "<group>";
@@ -546,10 +555,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */,
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
 				3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */,
 				2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */,
 				236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */,
+				236B28A22EAD4A13008112BD /* FlightRecord.swift in Sources */,
+				236B28A02EAD499A008112BD /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1096,6 +1108,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		236B28A32EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */,
+			);
+			currentVersion = 236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */;
+			name = FlightMetricsApp.xcdatamodeld;
+			path = /Users/gwiazdak/Documents/Personal/FlightMetricsApp/FlightMetricsApp/FlightMetricsApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B9EF9822E915C3900728123 /* Project object */;
 }

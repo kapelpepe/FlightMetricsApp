@@ -7,35 +7,43 @@
 
 import SwiftUI
 import WatchConnectivity
+import CoreData
 
 struct PhoneContentView: View {
-    @State private var receivedData: [FlightData] = []
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest( // pobranie rekordów FlightRecord z Core Data
+        sortDescriptors: [NSSortDescriptor(keyPath: \FlightRecord.timestamp, ascending: false)],
+        animation: .default
+    )
+    
+    private var records: FetchedResults<FlightRecord>
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                if receivedData.isEmpty {
+                if records.isEmpty {
                     Text("Brak danych - uruchom tracking na zegarku")
                 } else {
-                    Text("Odebrano \(receivedData.count) rekordów")
+                    Text("Odebrano \(records.count) rekordów")
                         .bold()
-                    ForEach(receivedData.prefix(10), id: \.timestamp) { data in
-                        let timestampInt = Int(data.timestamp.timeIntervalSince1970)
+                    ForEach(records.prefix(10), id: \.self) { (record: FlightRecord) in
+                        let timestampInt = Int(record.timestamp.timeIntervalSince1970)
                         Text("""
                         t=\(timestampInt)
-                        hr=\(Int(data.heartRateBPM ?? 0))
-                        p=\(Int(data.pressure ?? 0))
-                        relAlt=\(Int(data.relativeAltitude ?? 0))
-                        lat=\(data.latitude)
-                        lon=\(data.longitude)
-                        alt=\(Int(data.altitudeMeters))
-                        speed=\(Int(data.speedKnots))
-                        ax=\(data.ax ?? 0)
-                        ay=\(data.ay ?? 0)
-                        az=\(data.az ?? 0)
-                        gx=\(data.gx ?? 0)
-                        gy=\(data.gy ?? 0)
-                        gz=\(data.gz ?? 0)
+                        hr=\(Int(record.heartRateBPM))
+                        p=\(Int(record.pressure))
+                        relAlt=\(Int(record.relativeAltitude))
+                        lat=\(record.latitude)
+                        lon=\(record.longitude)
+                        alt=\(Int(record.altitudeMeters))
+                        speed=\(Int(record.speedKnots))
+                        ax=\(record.ax)
+                        ay=\(record.ay)
+                        az=\(record.az)
+                        gx=\(record.gx)
+                        gy=\(record.gy)
+                        gz=\(record.gz)
                         """)
                         .font(.system(size: 12, design: .monospaced))
                         .padding(.bottom, 4)
@@ -45,8 +53,11 @@ struct PhoneContentView: View {
             .padding()
         }
         .onAppear {
-            PhoneSession.shared.onFlightDataReceived = { data in
-                receivedData = data
+            PhoneSession.shared.onFlightDataReceived = { flightDataArray in
+                for flightData in flightDataArray {
+                    let _ = FlightRecord(from: flightData, context: viewContext)
+                }
+                do { try viewContext.save() } catch { print("Błąd zapisu Core Data") }
             }
         }
     }
@@ -54,4 +65,5 @@ struct PhoneContentView: View {
 
 #Preview {
     PhoneContentView()
+        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }

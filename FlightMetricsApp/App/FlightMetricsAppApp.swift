@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct FlightMetricsAppApp: App {
     
+    let persistenceController = PersistenceController.shared
+    
     init() {
         _ = PhoneSession.shared
     }
@@ -17,6 +19,7 @@ struct FlightMetricsAppApp: App {
     var body: some Scene {
         WindowGroup {
             PhoneContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
