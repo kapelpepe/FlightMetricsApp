@@ -5,6 +5,7 @@
 //  Created by Kacper Gwiazda on 04/10/2025.
 //
 
+// POKI CO ZOSTAJE W CELACH TESTOWYCH! ODPIETY OD WindowGroup W FlightMetricsAppApp
 import SwiftUI
 import WatchConnectivity
 import CoreData

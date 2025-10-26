@@ -18,7 +18,7 @@ struct FlightMetricsAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PhoneContentView()
+            HomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
