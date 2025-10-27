@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */; };
 		2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA52E9D57D300E010F9 /* PhoneSession.swift */; };
 		2344FBA82E9D586B00E010F9 /* WatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA72E9D586B00E010F9 /* WatchSession.swift */; };
 		2344FBAA2E9D5BEB00E010F9 /* SensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA92E9D5BEB00E010F9 /* SensorManager.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		2344FBA52E9D57D300E010F9 /* PhoneSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSession.swift; sourceTree = "<group>"; };
 		2344FBA72E9D586B00E010F9 /* WatchSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSession.swift; sourceTree = "<group>"; };
 		2344FBA92E9D5BEB00E010F9 /* SensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorManager.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				3B9EF98F2E915C3900728123 /* PhoneContentView.swift */,
 				234885F42EAE9ACA0028D73B /* HomeView.swift */,
+				231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				234885F12EAE92790028D73B /* FlightSession.swift in Sources */,
 				236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */,
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
+				231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */,
 				234885F52EAE9ACA0028D73B /* HomeView.swift in Sources */,
 				3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */,
 				2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */,

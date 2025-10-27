@@ -34,7 +34,9 @@ struct HomeView: View {
                                 .padding()
                         } else {
                             ForEach(sessions, id: \.id) { session in
-                                FlightCardView(session: session)
+                                NavigationLink(destination: FlightDetailView(session: session)) {
+                                    FlightCardView(session: session)
+                                }
                                     .padding(.horizontal)
                             }
                         }

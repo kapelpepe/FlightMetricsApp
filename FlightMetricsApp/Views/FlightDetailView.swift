@@ -1,0 +1,79 @@
+//
+//  FlightDetailView.swift
+//  FlightMetricsApp
+//
+//  Created by Gwiazda, Kacper on 27/10/2025.
+//
+
+import Foundation
+import SwiftUI
+
+struct FlightDetailView: View {
+    var session: FlightSession
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Szczegóły lotu")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.bottom, 8)
+
+                Group {
+                    HStack {
+                        Text("Data:")
+                        Spacer()
+                        Text(FlightSessionManager.formattedDate(session))
+                            .foregroundColor(.secondary)
+                    }
+
+                    HStack {
+                        Text("Czas trwania:")
+                        Spacer()
+                        Text(FlightSessionManager.formattedFlightTime(session))
+                            .foregroundColor(.secondary)
+                    }
+
+                    HStack {
+                        Text("Dystans:")
+                        Spacer()
+                        Text("\(String(format: "%.1f", session.distance)) km")
+                            .foregroundColor(.secondary)
+                    }
+
+                    HStack {
+                        Text("Liczba rekordów:")
+                        Spacer()
+                        Text("\(session.records?.count ?? 0)")
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .font(.headline)
+
+                Divider()
+
+                Text("Dane z FlightRecords")
+                    .font(.title3)
+                    .padding(.top, 10)
+
+                if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                    ForEach(records.prefix(10), id: \.self) { record in
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Data: \(record.timestamp.formatted())")
+                            Text("Tętno: \(Int(record.heartRateBPM)) bpm")
+                            Text("Wysokość: \(Int(record.altitudeMeters)) m")
+                            Text("Prędkość: \(Int(record.speedKnots)) kn")
+                        }
+                        .font(.footnote)
+                        .padding(8)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                    }
+                }
+            }
+            .padding()
+        }
+        .navigationTitle("Lot rekreacyjny")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
