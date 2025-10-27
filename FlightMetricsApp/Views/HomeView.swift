@@ -21,25 +21,54 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                Text("Ostatnie loty")
-                    .font(.title2)
-                    .bold()
-                    .padding([.top, .horizontal])
+            ZStack {
+                Color.appBackground.ignoresSafeArea()
+                
                 ScrollView {
-                    VStack(spacing: 12) {
-                        if sessions.isEmpty {
-                            Text("Brak zapisanych lotów")
-                                .foregroundColor(.secondary)
-                                .padding()
-                        } else {
-                            ForEach(sessions, id: \.id) { session in
-                                NavigationLink(destination: FlightDetailView(session: session)) {
-                                    FlightCardView(session: session)
+                    VStack(alignment: .leading, spacing: 20) {
+                        
+                        HStack { // header
+                            Image(systemName: "airplane.circle.fill")
+                                .resizable()
+                                .frame(width: 44, height: 44)
+                                .foregroundColor(.appFirstAccent)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Cześć!")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.appFirstAccent)
+                                Text("Witaj w Flight Metrics ✈️")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 10)
+                        
+                        StatsCardView(sessions: sessions) // statystyki
+                            .padding(.horizontal)
+                        
+                        Text("Ostatnie loty") // ostatnie loty
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal)
+                        
+                        VStack(spacing: 16) {
+                            if sessions.isEmpty {
+                                Text("Brak zapisanych lotów")
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                            } else {
+                                ForEach(sessions, id: \.id) { session in
+                                    NavigationLink(destination: FlightDetailView(session: session)) {
+                                        FlightCardView(session: session)
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
                                 }
-                                    .padding(.horizontal)
                             }
                         }
+                        .padding(.horizontal)
                     }
                     .padding(.top, 8)
                 }
@@ -82,9 +111,54 @@ struct FlightCardView: View {
             .foregroundColor(.secondary)
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color.cardBackground)
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+    }
+}
+
+struct StatsCardView: View {
+    var sessions: FetchedResults<FlightSession>
+    
+    var totalDistance: Double {
+        sessions.reduce(0) { $0 + $1.distance }
+    }
+    
+    var totalTime: Double {
+        sessions.reduce(0) { $0 + $1.flightTime }
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Statystyki")
+                .font(.headline)
+                .foregroundColor(.appFirstAccent)
+            Divider()
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Ilość lotów:")
+                    Text("\(sessions.count)")
+                        .bold()
+                }
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Łączny czas lotu:")
+                    Text(FlightSessionManager.formattedFlightTime(totalTime))
+                        .bold()
+                }
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Łączny dystans:")
+                    Text("\(String(format: "%.1f", totalDistance)) km")
+                        .bold()
+                }
+            }
+            .font(.subheadline)
+        }
+        .padding()
+        .background(Color.cardBackground)
+        .cornerRadius(20)
+        .shadow(color: Color.black.opacity(0.08), radius: 4, x: 0, y: 2)
     }
 }
 

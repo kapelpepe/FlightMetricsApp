@@ -53,3 +53,11 @@ class FlightSessionManager {
         return "\(hours)h \(minutes)min"
     }
 }
+
+extension FlightSessionManager { // rozszerzenie formatowania daty, potrzebne przy Total Time (Double)
+    static func formattedFlightTime(_ totalSeconds: Double) -> String {
+        let hours = Int(totalSeconds / 3600)
+        let minutes = Int((totalSeconds.truncatingRemainder(dividingBy: 3600)) / 60)
+        return "\(hours)h \(minutes)min"
+    }
+}
