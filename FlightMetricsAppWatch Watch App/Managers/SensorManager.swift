@@ -54,6 +54,7 @@ class SensorManager: NSObject, ObservableObject {
         // MOCK - dane testowe
         let mockLocation = CLLocation(latitude: 52.2297, longitude: 21.0122) // Warszawa
         var firstData = FlightData(from: mockLocation)
+        firstData.timestamp = Date()
         firstData.ax = 0.0
         firstData.ay = 0.0
         firstData.az = 0.0
@@ -64,7 +65,20 @@ class SensorManager: NSObject, ObservableObject {
         firstData.pressure = 1013
         firstData.relativeAltitude = 10
         
-        currentFlightData.append(firstData)
+        let mockLocation2 = CLLocation(latitude: 52.4064, longitude: 16.9252)
+        var secondData = FlightData(from: mockLocation2)
+        secondData.timestamp = Date().addingTimeInterval(1800) // +30 minut
+        secondData.ax = 0.2
+        secondData.ay = 0.1
+        secondData.az = 0.3
+        secondData.gx = 0.05
+        secondData.gy = 0.04
+        secondData.gz = 0.06
+        secondData.heartRateBPM = 85
+        secondData.pressure = 1011
+        secondData.relativeAltitude = 20
+
+        currentFlightData.append(contentsOf: [firstData, secondData])
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // start GPS

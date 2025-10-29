@@ -61,18 +61,21 @@ struct HomeView: View {
                                     .padding()
                             } else {
                                 ForEach(sessions, id: \.id) { session in
-                                    NavigationLink(destination: FlightDetailView(session: session)) {
-                                        FlightCardView(session: session)
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                    HStack {
+                                        NavigationLink(destination: FlightDetailView(session: session)) {
+                                            FlightCardView(session: session)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                        //.swipeActions(edge: .trailing, allowsFullSwipe: true) { na symulatorze nie dziala poprawnie swipe karty w lewa strone, tymczasowe rozwiazanie
                                         Button(role: .destructive) {
                                             withAnimation {
                                                 FlightSessionManager.deleteSession(session, in: viewContext)
                                             }
                                         } label: {
-                                            Label("Usuń", systemImage: "trash")
+                                            // Label("Usuń", systemImage: "trash")
+                                            Image(systemName: "trash")
                                         }
+                                        //}
                                     }
                                 }
                             }

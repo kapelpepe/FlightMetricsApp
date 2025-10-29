@@ -10,7 +10,7 @@ import CoreLocation
 
 struct FlightData: Codable, Identifiable {
     var id = UUID()
-    let timestamp: Date
+    var timestamp: Date
     let latitude: Double // szerokosc geograficzna
     let longitude: Double // dlugosc geograficzna
     let altitudeMeters: Double // wysokosc n.p.m pobierana z modulu GPS

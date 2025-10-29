@@ -15,8 +15,8 @@ class FlightSessionManager {
 
     func createSession(from records: [FlightRecord], context: NSManagedObjectContext) -> FlightSession {
         let session = FlightSession(from: records, context: context)
-        session.distance = calculateDistance(for: records)
-        session.flightTime = calculateFlightTime(for: records)
+        session.distance = FlightSessionManager.calculateDistance(for: records)
+        session.flightTime = FlightSessionManager.calculateFlightTime(for: records)
         do {
             try context.save()
         } catch {
@@ -25,7 +25,7 @@ class FlightSessionManager {
         return session
     }
 
-    private func calculateDistance(for records: [FlightRecord]) -> Double {
+    static func calculateDistance(for records: [FlightRecord]) -> Double {
         guard records.count > 1 else { return 0 }
         var totalDistance: Double = 0
         for i in 1..<records.count {
@@ -36,7 +36,7 @@ class FlightSessionManager {
         return totalDistance / 1000 // konwersja na kilometry
     }
 
-    private func calculateFlightTime(for records: [FlightRecord]) -> Double {
+    static func calculateFlightTime(for records: [FlightRecord]) -> Double {
         guard let first = records.first, let last = records.last else { return 0 }
         return last.timestamp.timeIntervalSince(first.timestamp)
     }

@@ -32,7 +32,7 @@ extension FlightSession {
         self.startDate = first.timestamp
         self.endDate = last.timestamp
         self.flightTime = last.timestamp.timeIntervalSince(first.timestamp)
-        self.distance = 0 // dystans zostanie policzony w managerze
+        self.distance = FlightSessionManager.calculateDistance(for: flightRecords)
 
         self.records = Set(flightRecords)
     }
