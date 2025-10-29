@@ -52,6 +52,15 @@ class FlightSessionManager {
         let minutes = Int((session.flightTime.truncatingRemainder(dividingBy: 3600)) / 60)
         return "\(hours)h \(minutes)min"
     }
+    
+    static func deleteSession(_ session: FlightSession, in context: NSManagedObjectContext) {
+        context.delete(session)
+        do {
+            try context.save()
+        } catch {
+            print("Błąd usuwania sesji")
+        }
+    }
 }
 
 extension FlightSessionManager { // rozszerzenie formatowania daty, potrzebne przy Total Time (Double)

@@ -65,6 +65,15 @@ struct HomeView: View {
                                         FlightCardView(session: session)
                                     }
                                     .buttonStyle(PlainButtonStyle())
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        Button(role: .destructive) {
+                                            withAnimation {
+                                                FlightSessionManager.deleteSession(session, in: viewContext)
+                                            }
+                                        } label: {
+                                            Label("Usuń", systemImage: "trash")
+                                        }
+                                    }
                                 }
                             }
                         }
