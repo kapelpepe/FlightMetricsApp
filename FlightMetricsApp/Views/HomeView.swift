@@ -109,6 +109,9 @@ struct FlightCardView: View {
         let formattedTime = FlightSessionManager.formattedFlightTime(session)
         
         return VStack(alignment: .leading, spacing: 6) {
+            FlightMapView(coordinates: session.routeCoordinates, interactive: false)
+                .frame(height: 120)
+                .cornerRadius(10)
             Text("Lot rekreacyjny")
                 .font(.headline)
             Text(formattedDate)

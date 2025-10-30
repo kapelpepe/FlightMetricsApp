@@ -18,7 +18,12 @@ struct FlightDetailView: View {
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 8)
-
+                
+                FlightMapView(coordinates: session.routeCoordinates, interactive: true)
+                    .frame(height: 300)
+                    .cornerRadius(15)
+                    .padding(.bottom)
+                
                 Group {
                     HStack {
                         Text("Data:")

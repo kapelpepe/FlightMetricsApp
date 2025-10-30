@@ -65,7 +65,7 @@ class SensorManager: NSObject, ObservableObject {
         firstData.pressure = 1013
         firstData.relativeAltitude = 10
         
-        let mockLocation2 = CLLocation(latitude: 52.4064, longitude: 16.9252)
+        let mockLocation2 = CLLocation(latitude: 52.2064, longitude: 20.9252)
         var secondData = FlightData(from: mockLocation2)
         secondData.timestamp = Date().addingTimeInterval(1800) // +30 minut
         secondData.ax = 0.2

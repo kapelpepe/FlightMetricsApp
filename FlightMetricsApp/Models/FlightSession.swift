@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import MapKit
 
 @objc(FlightSession)
 public class FlightSession: NSManagedObject {}
@@ -35,5 +36,12 @@ extension FlightSession {
         self.distance = FlightSessionManager.calculateDistance(for: flightRecords)
 
         self.records = Set(flightRecords)
+    }
+    
+    var routeCoordinates: [CLLocationCoordinate2D] {
+        guard let records = records else { return [] }
+        return records
+            .sorted(by: { $0.timestamp < $1.timestamp })
+            .map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) }
     }
 }
