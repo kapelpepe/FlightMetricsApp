@@ -64,6 +64,7 @@ class SensorManager: NSObject, ObservableObject {
         firstData.heartRateBPM = 70
         firstData.pressure = 1013
         firstData.relativeAltitude = 10
+        firstData.speedKnots = 10
         
         let mockLocation2 = CLLocation(latitude: 52.2064, longitude: 20.9252)
         var secondData = FlightData(from: mockLocation2)
@@ -77,6 +78,7 @@ class SensorManager: NSObject, ObservableObject {
         secondData.heartRateBPM = 85
         secondData.pressure = 1011
         secondData.relativeAltitude = 20
+        secondData.speedKnots = 20
 
         currentFlightData.append(contentsOf: [firstData, secondData])
         

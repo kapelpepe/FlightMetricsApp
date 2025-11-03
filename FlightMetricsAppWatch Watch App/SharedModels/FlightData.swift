@@ -11,10 +11,10 @@ import CoreLocation
 struct FlightData: Codable, Identifiable {
     var id = UUID()
     var timestamp: Date
-    let latitude: Double // szerokosc geograficzna
-    let longitude: Double // dlugosc geograficzna
-    let altitudeMeters: Double // wysokosc n.p.m pobierana z modulu GPS
-    let speedKnots: Double // predkosc pobierana z GPS w m/s (konwertowana ponizej)
+    var latitude: Double // szerokosc geograficzna
+    var longitude: Double // dlugosc geograficzna
+    var altitudeMeters: Double // wysokosc n.p.m pobierana z modulu GPS
+    var speedKnots: Double // predkosc pobierana z GPS w m/s (konwertowana ponizej)
     var pressure: Double? // cisnienie z barometru w hPa (moze byc nil przed rozpoczeciem dzialania czujnika - barometr dziala w trybie asynchronicznym)
     var relativeAltitude: Double? // wysokosc wzgledna (po starcie) pobierana z barometru
     var heartRateBPM: Double? // wartosc tetna w BPM pobrana z czujnika tetna

@@ -10,75 +10,87 @@ import SwiftUI
 
 struct FlightDetailView: View {
     var session: FlightSession
-
+    
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                Text("Szczegóły lotu")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding(.bottom, 8)
-                
-                FlightMapView(coordinates: session.routeCoordinates, interactive: true)
-                    .frame(height: 300)
-                    .cornerRadius(15)
-                    .padding(.bottom)
-                
-                Group {
-                    HStack {
-                        Text("Data:")
-                        Spacer()
-                        Text(FlightSessionManager.formattedDate(session))
-                            .foregroundColor(.secondary)
-                    }
-
-                    HStack {
-                        Text("Czas trwania:")
-                        Spacer()
-                        Text(FlightSessionManager.formattedFlightTime(session))
-                            .foregroundColor(.secondary)
-                    }
-
-                    HStack {
-                        Text("Dystans:")
-                        Spacer()
-                        Text("\(String(format: "%.1f", session.distance)) km")
-                            .foregroundColor(.secondary)
-                    }
-
-                    HStack {
-                        Text("Liczba rekordów:")
-                        Spacer()
-                        Text("\(session.records?.count ?? 0)")
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .font(.headline)
-
-                Divider()
-
-                Text("Dane z FlightRecords")
-                    .font(.title3)
-                    .padding(.top, 10)
-
-                if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
-                    ForEach(records.prefix(10), id: \.self) { record in
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Data: \(record.timestamp.formatted())")
-                            Text("Tętno: \(Int(record.heartRateBPM)) bpm")
-                            Text("Wysokość: \(Int(record.altitudeMeters)) m")
-                            Text("Prędkość: \(Int(record.speedKnots)) kn")
+        ZStack {
+            Color.appBackground.ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Szczegóły lotu")
+                        .font(.title)
+                        .bold()
+                        .padding(.bottom, 8)
+                        .foregroundColor(.appFirstAccent)
+                    
+                    FlightMapView(coordinates: session.routeCoordinates, interactive: true)
+                        .frame(height: 300)
+                        .cornerRadius(15)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.white, lineWidth: 3)
+                        )
+                        .padding(.bottom)
+                    
+                    Group {
+                        HStack {
+                            Text("Data:")
+                            Spacer()
+                            Text(FlightSessionManager.formattedDate(session))
+                                .foregroundColor(.secondary)
                         }
-                        .font(.footnote)
-                        .padding(8)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
+                        
+                        HStack {
+                            Text("Czas trwania:")
+                            Spacer()
+                            Text(FlightSessionManager.formattedFlightTime(session))
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        HStack {
+                            Text("Dystans:")
+                            Spacer()
+                            Text("\(String(format: "%.1f", session.distance)) km")
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        HStack {
+                            Text("Liczba rekordów:")
+                            Spacer()
+                            Text("\(session.records?.count ?? 0)")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .font(.headline)
+                    
+                    Divider()
+                    
+                    if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                        FlightChartsView(records: records)
+                    }
+                    
+                    Text("Dane z FlightRecords")
+                        .font(.title3)
+                        .padding(.top, 10)
+                    
+                    if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                        ForEach(records.prefix(10), id: \.self) { record in
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Data: \(record.timestamp.formatted())")
+                                Text("Tętno: \(Int(record.heartRateBPM)) bpm")
+                                Text("Wysokość: \(Int(record.altitudeMeters)) m")
+                                Text("Prędkość: \(Int(record.speedKnots)) kn")
+                            }
+                            .font(.footnote)
+                            .padding(8)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
+            .navigationTitle("Lot rekreacyjny")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("Lot rekreacyjny")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
