@@ -54,6 +54,8 @@ struct FlightChartCardView: View {
     let data: [(Date, Double)]
     let unit: String
     
+    @State private var showStats = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
@@ -72,10 +74,43 @@ struct FlightChartCardView: View {
             }
             .frame(height: 180)
             
-            if let avg = averageValue {
-                Text("Średnio: \(String(format: "%.1f", avg)) \(unit)")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+            Button {
+                withAnimation(.spring()) {
+                    showStats.toggle()
+                }
+            } label: {
+                HStack {
+                    Text("Statystyki")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.appFirstAccent)
+                    Image(systemName: showStats ? "chevron.up" : "chevron.down")
+                        .foregroundColor(.appFirstAccent)
+                        .font(.system(size: 14, weight: .semibold))
+                }
+            }
+            .padding(.top, 4)
+            
+            if showStats {
+                VStack(alignment: .leading, spacing: 4) {
+                    let values = data.map { $0.1 }
+                    if let avg = FlightStatsManager.average(of: values) {
+                        Text("Średnia: \(String(format: "%.1f", avg)) \(unit)")
+                    }
+                    if let median = FlightStatsManager.median(of: values) {
+                        Text("Mediana: \(String(format: "%.1f", median)) \(unit)")
+                    }
+                    if let max = FlightStatsManager.maxValue(of: values) {
+                        Text("Maksimum: \(String(format: "%.1f", max)) \(unit)")
+                    }
+                    if let min = FlightStatsManager.minValue(of: values) {
+                        Text("Minimum: \(String(format: "%.1f", min)) \(unit)")
+                    }
+                }
+                .font(.footnote)
+                .foregroundColor(.secondary)
+                .padding(.top, 4)
+                .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
         .padding()
@@ -83,11 +118,5 @@ struct FlightChartCardView: View {
         .background(Color(.cardBackground))
         .cornerRadius(16)
         .shadow(radius: 3)
-    }
-    
-    private var averageValue: Double? {
-        let valid = data.map { $0.1 }.filter { !$0.isNaN && $0 != 0 }
-        guard !valid.isEmpty else { return nil }
-        return valid.reduce(0, +) / Double(valid.count)
     }
 }
