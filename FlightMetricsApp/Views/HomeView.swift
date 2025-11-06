@@ -16,8 +16,9 @@ struct HomeView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \FlightSession.startDate, ascending: false)],
         animation: .default
     )
-    
     private var sessions: FetchedResults<FlightSession>
+    
+    @State private var showUndoBanner = false
     
     var body: some View {
         NavigationView {
@@ -69,7 +70,21 @@ struct HomeView: View {
                                         //.swipeActions(edge: .trailing, allowsFullSwipe: true) { na symulatorze nie dziala poprawnie swipe karty w lewa strone, tymczasowe rozwiazanie
                                         Button(role: .destructive) {
                                             withAnimation {
-                                                FlightSessionManager.deleteSession(session, in: viewContext)
+                                                viewContext.delete(session)
+                                                showUndoBanner = true
+                                            }
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                                                if showUndoBanner {
+                                                    do {
+                                                        try viewContext.save()
+                                                    } catch {
+                                                        print("Błąd zapisu po usunięciu")
+                                                    }
+                                                    withAnimation {
+                                                        showUndoBanner = false
+                                                    }
+                                                }
                                             }
                                         } label: {
                                             // Label("Usuń", systemImage: "trash")
@@ -84,6 +99,34 @@ struct HomeView: View {
                     }
                     .padding(.top, 8)
                 }
+                
+                VStack {
+                    Spacer()
+                    
+                    if showUndoBanner {
+                        HStack {
+                            Text("Sesja usunięta")
+                                .foregroundColor(.white)
+                            Spacer()
+                            Button("Cofnij") {
+                                viewContext.rollback()
+                                withAnimation {
+                                    showUndoBanner = false
+                                }
+                            }
+                            .bold()
+                            .foregroundColor(.white)
+                        }
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(12)
+                        .padding(.horizontal)
+                        .padding(.bottom, 20)
+                        .shadow(radius: 5)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                    }
+                }
+                
             }
             .navigationTitle("") // dla ukrycia podstawowego tytulu nawigacji
             .navigationBarHidden(true)
