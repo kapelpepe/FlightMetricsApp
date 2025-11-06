@@ -22,6 +22,7 @@ class SensorManager: NSObject, ObservableObject {
     @Published var currentHeartRate: Double? = nil
     @Published var accelerometerData: CMAccelerometerData? = nil
     @Published var gyroData: CMGyroData? = nil
+    @Published var selectedFlightType: String = "Lot rekreacyjny"
     
     private var currentFlightData: [FlightData] = []
     private var isTracking = false
@@ -46,7 +47,7 @@ class SensorManager: NSObject, ObservableObject {
     }
     
     func startTracking() { // start trackingu
-        print("test")
+        print("Start trackingu")
         guard !isTracking else { return }
         isTracking = true
         currentFlightData.removeAll()
@@ -65,6 +66,7 @@ class SensorManager: NSObject, ObservableObject {
         firstData.pressure = 1013
         firstData.relativeAltitude = 10
         firstData.speedKnots = 10
+        firstData.flightType = selectedFlightType
         
         let mockLocation2 = CLLocation(latitude: 52.2064, longitude: 20.9252)
         var secondData = FlightData(from: mockLocation2)
@@ -79,6 +81,7 @@ class SensorManager: NSObject, ObservableObject {
         secondData.pressure = 1011
         secondData.relativeAltitude = 20
         secondData.speedKnots = 20
+        secondData.flightType = selectedFlightType
 
         currentFlightData.append(contentsOf: [firstData, secondData])
         
@@ -87,6 +90,7 @@ class SensorManager: NSObject, ObservableObject {
         startBarometer() // start barometru
         startHeartRateQuery() // start pomiaru tetna
         startIMU() // start IMU
+        
     }
     
     func stopTracking() -> URL? { // stop trackingu
@@ -225,6 +229,8 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
         guard let location = locations.last, location.horizontalAccuracy > 0 else { return }
         
         var newData = FlightData(from: location)
+        
+        newData.flightType = selectedFlightType
         
         newData.heartRateBPM = currentHeartRate
         

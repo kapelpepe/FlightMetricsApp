@@ -32,6 +32,7 @@ extension FlightRecord {
     @NSManaged public var gx: Double
     @NSManaged public var gy: Double
     @NSManaged public var gz: Double
+    @NSManaged public var flightType: String
     
     convenience init(from flightData: FlightData, context: NSManagedObjectContext) {
         self.init(context: context)
@@ -49,5 +50,6 @@ extension FlightRecord {
         self.gx = flightData.gx ?? 0
         self.gy = flightData.gy ?? 0
         self.gz = flightData.gz ?? 0
+        self.flightType = flightData.flightType
     }
 }

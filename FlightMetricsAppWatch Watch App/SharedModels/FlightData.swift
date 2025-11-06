@@ -24,6 +24,7 @@ struct FlightData: Codable, Identifiable {
     var gx: Double? // koordynaty z zyroskopu
     var gy: Double?
     var gz: Double?
+    var flightType: String
     
     init(from location: CLLocation) {
         self.timestamp = Date()
@@ -40,5 +41,6 @@ struct FlightData: Codable, Identifiable {
         self.gx = nil
         self.gy = nil
         self.gz = nil
+        self.flightType = ""
     }
 }

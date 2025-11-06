@@ -22,6 +22,7 @@ extension FlightSession {
     @NSManaged public var endDate: Date
     @NSManaged public var distance: Double
     @NSManaged public var flightTime: Double
+    @NSManaged public var flightType: String
     @NSManaged public var records: Set<FlightRecord>?
 
     convenience init(from flightRecords: [FlightRecord], context: NSManagedObjectContext) {
@@ -34,6 +35,8 @@ extension FlightSession {
         self.endDate = last.timestamp
         self.flightTime = last.timestamp.timeIntervalSince(first.timestamp)
         self.distance = FlightSessionManager.calculateDistance(for: flightRecords)
+        
+        self.flightType = first.flightType
 
         self.records = Set(flightRecords)
     }

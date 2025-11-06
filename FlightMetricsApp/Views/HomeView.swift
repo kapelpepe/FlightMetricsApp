@@ -155,7 +155,7 @@ struct FlightCardView: View {
             FlightMapView(coordinates: session.routeCoordinates, interactive: false)
                 .frame(height: 120)
                 .cornerRadius(10)
-            Text("Lot rekreacyjny")
+            Text("\(session.flightType)")
                 .font(.headline)
             Text(formattedDate)
                 .font(.subheadline)
