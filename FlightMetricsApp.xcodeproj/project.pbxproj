@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */; };
+		23304D6A2EBF7B8B006FD28A /* FlightChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23304D692EBF7B8B006FD28A /* FlightChartCardView.swift */; };
+		23304D6C2EBF7C74006FD28A /* FlightGForceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */; };
+		23304D6E2EBF9722006FD28A /* FlightHeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23304D6D2EBF9722006FD28A /* FlightHeartRateView.swift */; };
 		2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA52E9D57D300E010F9 /* PhoneSession.swift */; };
 		2344FBA82E9D586B00E010F9 /* WatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA72E9D586B00E010F9 /* WatchSession.swift */; };
 		2344FBAA2E9D5BEB00E010F9 /* SensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBA92E9D5BEB00E010F9 /* SensorManager.swift */; };
@@ -93,6 +96,9 @@
 
 /* Begin PBXFileReference section */
 		231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
+		23304D692EBF7B8B006FD28A /* FlightChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightChartCardView.swift; sourceTree = "<group>"; };
+		23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightGForceView.swift; sourceTree = "<group>"; };
+		23304D6D2EBF9722006FD28A /* FlightHeartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightHeartRateView.swift; sourceTree = "<group>"; };
 		2344FBA52E9D57D300E010F9 /* PhoneSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSession.swift; sourceTree = "<group>"; };
 		2344FBA72E9D586B00E010F9 /* WatchSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSession.swift; sourceTree = "<group>"; };
 		2344FBA92E9D5BEB00E010F9 /* SensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorManager.swift; sourceTree = "<group>"; };
@@ -252,7 +258,10 @@
 			isa = PBXGroup;
 			children = (
 				23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */,
+				23304D692EBF7B8B006FD28A /* FlightChartCardView.swift */,
 				23BE945C2EB9551100D574FA /* FlightChartsView.swift */,
+				23304D6D2EBF9722006FD28A /* FlightHeartRateView.swift */,
+				23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -584,14 +593,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23304D6C2EBF7C74006FD28A /* FlightGForceView.swift in Sources */,
 				234885F12EAE92790028D73B /* FlightSession.swift in Sources */,
 				23BE945D2EB9551100D574FA /* FlightChartsView.swift in Sources */,
 				23C28C9B2EB41C5B0094A20B /* FlightMapView.swift in Sources */,
 				236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */,
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
 				231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */,
+				23304D6A2EBF7B8B006FD28A /* FlightChartCardView.swift in Sources */,
 				234885F52EAE9ACA0028D73B /* HomeView.swift in Sources */,
 				3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */,
+				23304D6E2EBF9722006FD28A /* FlightHeartRateView.swift in Sources */,
 				2344FBA62E9D57D300E010F9 /* PhoneSession.swift in Sources */,
 				234885F32EAE98E60028D73B /* FlightSessionManager.swift in Sources */,
 				236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */,

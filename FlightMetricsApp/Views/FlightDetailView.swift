@@ -68,6 +68,18 @@ struct FlightDetailView: View {
                         FlightChartsView(records: records)
                     }
                     
+                    Divider()
+                    
+                    if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                        FlightHeartRateView(records: records)
+                    }
+                    
+                    Divider()
+                    
+                    if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                        FlightGForceView(records: records)
+                    }
+                    
                     Text("Dane z FlightRecords")
                         .font(.title3)
                         .padding(.top, 10)
@@ -79,6 +91,9 @@ struct FlightDetailView: View {
                                 Text("Tętno: \(Int(record.heartRateBPM)) bpm")
                                 Text("Wysokość: \(Int(record.altitudeMeters)) m")
                                 Text("Prędkość: \(Int(record.speedKnots)) kn")
+                                Text("Ax: \(Double(record.ax))")
+                                Text("Ay: \(Double(record.ay))")
+                                Text("Az: \(Double(record.az))")
                             }
                             .font(.footnote)
                             .padding(8)

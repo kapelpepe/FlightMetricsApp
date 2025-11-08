@@ -58,7 +58,7 @@ class SensorManager: NSObject, ObservableObject {
         firstData.timestamp = Date()
         firstData.ax = 0.0
         firstData.ay = 0.0
-        firstData.az = 0.0
+        firstData.az = -1.0
         firstData.gx = 0.0
         firstData.gy = 0.0
         firstData.gz = 0.0
@@ -71,9 +71,9 @@ class SensorManager: NSObject, ObservableObject {
         let mockLocation2 = CLLocation(latitude: 52.2064, longitude: 20.9252)
         var secondData = FlightData(from: mockLocation2)
         secondData.timestamp = Date().addingTimeInterval(1800) // +30 minut
-        secondData.ax = 0.2
-        secondData.ay = 0.1
-        secondData.az = 0.3
+        secondData.ax = 0.0
+        secondData.ay = 0.2
+        secondData.az = -1.2
         secondData.gx = 0.05
         secondData.gy = 0.04
         secondData.gz = 0.06
