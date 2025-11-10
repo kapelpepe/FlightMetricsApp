@@ -22,6 +22,7 @@
 		236B28A22EAD4A13008112BD /* FlightRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236B28A12EAD4A13008112BD /* FlightRecord.swift */; };
 		236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 236B28A32EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld */; };
 		236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */; };
+		2374E2B22EC2302800EDD47A /* FlightGyroscopeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */; };
 		23A927EC2EBAB60C0059E4DB /* FlightStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A927EB2EBAB60C0059E4DB /* FlightStatsManager.swift */; };
 		23BE945D2EB9551100D574FA /* FlightChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE945C2EB9551100D574FA /* FlightChartsView.swift */; };
 		23C28C9B2EB41C5B0094A20B /* FlightMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */; };
@@ -111,6 +112,7 @@
 		236B289F2EAD499A008112BD /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		236B28A12EAD4A13008112BD /* FlightRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRecord.swift; sourceTree = "<group>"; };
 		236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightMetricsApp.xcdatamodel; sourceTree = "<group>"; };
+		2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightGyroscopeView.swift; sourceTree = "<group>"; };
 		23A927EB2EBAB60C0059E4DB /* FlightStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightStatsManager.swift; sourceTree = "<group>"; };
 		23BE945C2EB9551100D574FA /* FlightChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightChartsView.swift; sourceTree = "<group>"; };
 		23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMapView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				23BE945C2EB9551100D574FA /* FlightChartsView.swift */,
 				23304D6D2EBF9722006FD28A /* FlightHeartRateView.swift */,
 				23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */,
+				2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */,
 				236B28A22EAD4A13008112BD /* FlightRecord.swift in Sources */,
 				236B28A02EAD499A008112BD /* PersistenceController.swift in Sources */,
+				2374E2B22EC2302800EDD47A /* FlightGyroscopeView.swift in Sources */,
 				23A927EC2EBAB60C0059E4DB /* FlightStatsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

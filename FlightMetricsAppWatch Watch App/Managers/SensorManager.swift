@@ -27,6 +27,10 @@ class SensorManager: NSObject, ObservableObject {
     private var currentFlightData: [FlightData] = []
     private var isTracking = false
     private var heartRateQuery: HKQuery?
+    private var lastUpdateTime: Date? = nil
+    private var roll: Double = 0.0
+    private var pitch: Double = 0.0
+    private var yaw: Double = 0.0
     
     private override init() { // inicjalizacja klasy
         super.init()
@@ -59,9 +63,9 @@ class SensorManager: NSObject, ObservableObject {
         firstData.ax = 0.0
         firstData.ay = 0.0
         firstData.az = -1.0
-        firstData.gx = 0.0
-        firstData.gy = 0.0
-        firstData.gz = 0.0
+        firstData.gx = 5.0
+        firstData.gy = 2.5
+        firstData.gz = 45.0
         firstData.heartRateBPM = 70
         firstData.pressure = 1013
         firstData.relativeAltitude = 10
@@ -74,9 +78,9 @@ class SensorManager: NSObject, ObservableObject {
         secondData.ax = 0.0
         secondData.ay = 0.2
         secondData.az = -1.2
-        secondData.gx = 0.05
-        secondData.gy = 0.04
-        secondData.gz = 0.06
+        secondData.gx = -10.0
+        secondData.gy = 5.0
+        secondData.gz = 100.0
         secondData.heartRateBPM = 85
         secondData.pressure = 1011
         secondData.relativeAltitude = 20
@@ -206,10 +210,21 @@ class SensorManager: NSObject, ObservableObject {
                 guard let self = self, let data = data, error == nil else { return }
                 self.gyroData = data
                 
+                let currentTime = Date()
+                var deltaTime = 0.0
+                if let last = self.lastUpdateTime {
+                    deltaTime = currentTime.timeIntervalSince(last)
+                }
+                self.lastUpdateTime = currentTime
+                
+                self.roll  += data.rotationRate.x * deltaTime * 180 / .pi // przeliczenie z rad/s na kąt w stopniach
+                self.pitch += data.rotationRate.y * deltaTime * 180 / .pi
+                self.yaw   += data.rotationRate.z * deltaTime * 180 / .pi
+                
                 if self.isTracking, var last = self.currentFlightData.last {
-                    last.gx = data.rotationRate.x
-                    last.gy = data.rotationRate.y
-                    last.gz = data.rotationRate.z
+                    last.gx = self.roll
+                    last.gy = self.pitch
+                    last.gz = self.yaw
                     self.currentFlightData[self.currentFlightData.count - 1] = last
                 }
             }
@@ -241,9 +256,9 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
         }
         
         if let gyro = gyroData {
-            newData.gx = gyro.rotationRate.x
-            newData.gy = gyro.rotationRate.y
-            newData.gz = gyro.rotationRate.z
+            newData.gx = roll
+            newData.gy = pitch
+            newData.gz = yaw
         }
         
         currentFlightData.append(newData)

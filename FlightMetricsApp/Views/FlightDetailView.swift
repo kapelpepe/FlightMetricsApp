@@ -71,6 +71,12 @@ struct FlightDetailView: View {
                     Divider()
                     
                     if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                        FlightGyroscopeView(records: records)
+                    }
+                    
+                    Divider()
+                    
+                    if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
                         FlightHeartRateView(records: records)
                     }
                     
