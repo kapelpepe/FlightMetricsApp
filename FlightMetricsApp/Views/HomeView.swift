@@ -28,21 +28,30 @@ struct HomeView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         
-                        HStack { // header
-                            Image(systemName: "airplane.circle.fill")
-                                .resizable()
-                                .frame(width: 44, height: 44)
-                                .foregroundColor(.appFirstAccent)
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Cześć!")
-                                    .font(.title)
-                                    .fontWeight(.bold)
+                        HStack {
+                            HStack { // header
+                                Image(systemName: "airplane.circle.fill")
+                                    .resizable()
+                                    .frame(width: 44, height: 44)
                                     .foregroundColor(.appFirstAccent)
-                                Text("Witaj w Flight Metrics ✈️")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Cześć!")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.appFirstAccent)
+                                    Text("Witaj w Flight Metrics ✈️")
+                                        .font(.subheadline)
+                                        .foregroundColor(.textSecondary)
+                                }
                             }
+                            
                             Spacer()
+                            
+                            NavigationLink(destination: SettingsView()) {
+                                Image(systemName: "gearshape.fill")
+                                    .font(.title2)
+                                    .foregroundColor(.appFirstAccent)
+                            }
                         }
                         .padding(.horizontal)
                         .padding(.top, 10)
@@ -54,11 +63,12 @@ struct HomeView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                             .padding(.horizontal)
+                            .foregroundColor(.textPrimary)
                         
                         VStack(spacing: 16) {
                             if sessions.isEmpty {
                                 Text("Brak zapisanych lotów")
-                                    .foregroundColor(.secondary)
+                                    .foregroundColor(.textSecondary)
                                     .padding()
                             } else {
                                 ForEach(sessions, id: \.id) { session in
@@ -159,14 +169,14 @@ struct FlightCardView: View {
                 .font(.headline)
             Text(formattedDate)
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundColor(.textSecondary)
             HStack {
                 Text("Dystans: \(String(format: "%.1f", session.distance)) km")
                 Spacer()
                 Text("Czas lotu: \(formattedTime)")
             }
             .font(.footnote)
-            .foregroundColor(.secondary)
+            .foregroundColor(.textSecondary)
         }
         .padding()
         .background(Color.cardBackground)

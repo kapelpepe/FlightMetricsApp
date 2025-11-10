@@ -11,6 +11,7 @@ import SwiftUI
 struct FlightMetricsAppApp: App {
     
     let persistenceController = PersistenceController.shared
+    @AppStorage("colorScheme") private var colorScheme: String = "system" // kolory z Assets
     
     init() {
         _ = PhoneSession.shared
@@ -20,6 +21,9 @@ struct FlightMetricsAppApp: App {
         WindowGroup {
             HomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .preferredColorScheme(
+                    colorScheme == "system" ? nil : (colorScheme == "light" ? .light : .dark)
+                )
         }
     }
 }
