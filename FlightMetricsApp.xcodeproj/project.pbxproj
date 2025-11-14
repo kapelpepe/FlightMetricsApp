@@ -115,6 +115,7 @@
 		236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightMetricsApp.xcdatamodel; sourceTree = "<group>"; };
 		2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightGyroscopeView.swift; sourceTree = "<group>"; };
 		2374E2B32EC246CA00EDD47A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2388345E2EC7AAC800AA3DFB /* FlightMetricsAppWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlightMetricsAppWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		23A927EB2EBAB60C0059E4DB /* FlightStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightStatsManager.swift; sourceTree = "<group>"; };
 		23BE945C2EB9551100D574FA /* FlightChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightChartsView.swift; sourceTree = "<group>"; };
 		23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMapView.swift; sourceTree = "<group>"; };
@@ -341,6 +342,7 @@
 		3B9EF9BC2E9168D000728123 /* FlightMetricsAppWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				2388345E2EC7AAC800AA3DFB /* FlightMetricsAppWatch-Watch-App-Info.plist */,
 				23533A952EA95E7900D155EC /* FlightMetricsAppWatch Watch App.entitlements */,
 				2344FBA12E9D532800E010F9 /* App */,
 				2344FBA42E9D534E00E010F9 /* SharedModels */,
@@ -824,10 +826,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlightMetricsApp/FlightMetricsApp.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlightMetricsApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -856,10 +859,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlightMetricsApp/FlightMetricsApp.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlightMetricsApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -960,13 +964,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FlightMetricsAppWatch Watch App/FlightMetricsAppWatch Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlightMetricsAppWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kacpergwiazda.FlightMetricsApp;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -993,13 +999,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FlightMetricsAppWatch Watch App/FlightMetricsAppWatch Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlightMetricsAppWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kacpergwiazda.FlightMetricsApp;
 				LD_RUNPATH_SEARCH_PATHS = (
