@@ -35,7 +35,7 @@ struct FlightGForceView: View {
                     return val > 1 ? .red : .green
                 },
                 height: 280,
-                width: 360
+                width: 400
             )
         }
     }

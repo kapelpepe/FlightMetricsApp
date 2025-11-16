@@ -22,7 +22,7 @@ class WatchSession: NSObject, WCSessionDelegate {
     
     // DLA TESTOW - transferFile nie dziala na symulatorze
     
-    /*func sendFlightFileIfPossible(_ fileURL: URL) {
+    func sendFlightFileIfPossible(_ fileURL: URL) {
         let session = WCSession.default
         guard session.activationState == .activated else {
             print("WCSession nieaktywna")
@@ -31,9 +31,9 @@ class WatchSession: NSObject, WCSessionDelegate {
 
         print("WatchSession: transferFile")
         session.transferFile(fileURL, metadata: nil)
-    }*/
+    }
     
-    func sendFlightFileIfPossible(_ fileURL: URL) {
+    /*func sendFlightFileIfPossible(_ fileURL: URL) {
         do {
             let data = try Data(contentsOf: fileURL)
             try WCSession.default.updateApplicationContext(["flightData": data])
@@ -41,7 +41,7 @@ class WatchSession: NSObject, WCSessionDelegate {
         } catch {
             print("Błąd wysyłania danych")
         }
-    }
+    }*/
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {}
 }

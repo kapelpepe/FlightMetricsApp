@@ -100,6 +100,9 @@ struct FlightDetailView: View {
                                 Text("Ax: \(Double(record.ax))")
                                 Text("Ay: \(Double(record.ay))")
                                 Text("Az: \(Double(record.az))")
+                                Text("Gx: \(Double(record.gx))")
+                                Text("Gy: \(Double(record.gy))")
+                                Text("Gz: \(Double(record.gz))")
                             }
                             .font(.footnote)
                             .padding(8)
@@ -110,7 +113,7 @@ struct FlightDetailView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Lot rekreacyjny")
+            .navigationTitle("\(session.flightType)")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

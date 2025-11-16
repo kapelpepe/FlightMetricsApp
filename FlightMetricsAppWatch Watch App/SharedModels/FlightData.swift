@@ -31,7 +31,7 @@ struct FlightData: Codable, Identifiable {
         self.latitude = location.coordinate.latitude
         self.longitude = location.coordinate.longitude
         self.altitudeMeters = location.altitude
-        self.speedKnots = location.speed * 1.94384 // konwersja na węzły
+        self.speedKnots = max(location.speed, 0) * 1.94384 // konwersja na węzły
         self.pressure = nil
         self.relativeAltitude = nil
         self.heartRateBPM = nil

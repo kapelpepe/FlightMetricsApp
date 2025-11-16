@@ -23,6 +23,12 @@ struct FlightChartsView: View {
                 HStack(spacing: 16) {
                     
                     FlightChartCardView(
+                        title: "Wysokość",
+                        data: records.map { ($0.timestamp, $0.altitudeMeters) },
+                        unit: "m"
+                    )
+                    
+                    FlightChartCardView(
                         title: "Wysokość względna",
                         data: records.map { ($0.timestamp, $0.relativeAltitude) },
                         unit: "m"

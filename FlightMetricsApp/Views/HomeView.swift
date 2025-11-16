@@ -77,7 +77,6 @@ struct HomeView: View {
                                             FlightCardView(session: session)
                                         }
                                         .buttonStyle(PlainButtonStyle())
-                                        //.swipeActions(edge: .trailing, allowsFullSwipe: true) { na symulatorze nie dziala poprawnie swipe karty w lewa strone, tymczasowe rozwiazanie
                                         Button(role: .destructive) {
                                             withAnimation {
                                                 viewContext.delete(session)
@@ -97,10 +96,15 @@ struct HomeView: View {
                                                 }
                                             }
                                         } label: {
-                                            // Label("Usuń", systemImage: "trash")
                                             Image(systemName: "trash")
                                         }
-                                        //}
+                                    }
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        Button(role: .destructive) {
+                                            viewContext.delete(session)
+                                        } label: {
+                                            Label("Usuń", systemImage: "trash")
+                                        }
                                     }
                                 }
                             }

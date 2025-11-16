@@ -32,14 +32,14 @@ struct FlightGyroscopeView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     FlightChartCardView( // roll
-                        title: "Roll (przechylenie wokół osi X)",
+                        title: "Roll (obrót wokół osi X)",
                         data: rollData,
                         unit: "°",
                         chartColor: { _ in .red }
                     )
                     
                     FlightChartCardView( // pitch
-                        title: "Pitch (pochylenie wokół osi Y)",
+                        title: "Pitch (obrót wokół osi Y)",
                         data: pitchData,
                         unit: "°",
                         chartColor: { _ in .green }

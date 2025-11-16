@@ -26,7 +26,7 @@ struct FlightChartCardView: View {
                 .padding(.bottom, 4)
             
             Chart {
-                ForEach(data, id: \.0) { point in
+                ForEach(data.dropFirst(), id: \.0) { point in
                     LineMark(
                         x: .value("Czas", point.0),
                         y: .value(title, point.1)

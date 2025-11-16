@@ -35,7 +35,7 @@ class PhoneSession: NSObject, WCSessionDelegate {
     
     // DLA TESTOW - funkcja z didReceive file niestety nie dziala na symulatorze. Poki nie prowadze testow na urzadzeniu fizycznym, wykorzystuje przebudowana session z didReceiveApplicationContext
     
-    /*func session(_ session: WCSession, didReceive file: WCSessionFile) {
+    func session(_ session: WCSession, didReceive file: WCSessionFile) {
      
      print("PhoneSession: mam plik \(file.fileURL.lastPathComponent)")
      
@@ -57,9 +57,9 @@ class PhoneSession: NSObject, WCSessionDelegate {
      } catch {
      print("Błąd w odbiorze pliku")
      }
-     }*/
+     }
     
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+    /*func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let data = applicationContext["flightData"] as? Data {
             let decoder = JSONDecoder()
             if let flights = try? decoder.decode([FlightData].self, from: data) {
@@ -70,5 +70,6 @@ class PhoneSession: NSObject, WCSessionDelegate {
                 }
             }
         }
-    }
+    }*/
+    
 }

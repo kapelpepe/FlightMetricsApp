@@ -57,6 +57,7 @@ class SensorManager: NSObject, ObservableObject {
         currentFlightData.removeAll()
         
         // MOCK - dane testowe
+        /*
         let mockLocation = CLLocation(latitude: 52.2297, longitude: 21.0122) // Warszawa
         var firstData = FlightData(from: mockLocation)
         firstData.timestamp = Date()
@@ -88,6 +89,7 @@ class SensorManager: NSObject, ObservableObject {
         secondData.flightType = selectedFlightType
 
         currentFlightData.append(contentsOf: [firstData, secondData])
+        */
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // start GPS
@@ -98,6 +100,7 @@ class SensorManager: NSObject, ObservableObject {
     }
     
     func stopTracking() -> URL? { // stop trackingu
+        print("Stop trackingu")
         guard isTracking else { return nil }
         isTracking = false
         locationManager.stopUpdatingLocation()
@@ -260,7 +263,7 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
             newData.gy = pitch
             newData.gz = yaw
         }
-        
+        print("Update lokalizacji i dodanie nowych danych")
         currentFlightData.append(newData)
     }
 }

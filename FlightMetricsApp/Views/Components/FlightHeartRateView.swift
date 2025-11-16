@@ -34,7 +34,7 @@ struct FlightHeartRateView: View {
                     }
                 },
                 height: 280,
-                width: 360
+                width: 400
             )
         }
     }

@@ -972,6 +972,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pozwól aplikacji na dostęp do lokalizacji.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kacpergwiazda.FlightMetricsApp;
@@ -1007,6 +1008,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pozwól aplikacji na dostęp do lokalizacji.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kacpergwiazda.FlightMetricsApp;
