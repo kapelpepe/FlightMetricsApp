@@ -21,7 +21,7 @@ class SensorManager: NSObject, ObservableObject {
     @Published var currentPressure: Double? = nil
     @Published var currentHeartRate: Double? = nil
     @Published var accelerometerData: CMAccelerometerData? = nil
-    @Published var gyroData: CMGyroData? = nil
+    @Published var gyroData: CMDeviceMotion? = nil
     @Published var selectedFlightType: String = "Lot rekreacyjny"
     
     private var currentFlightData: [FlightData] = []
@@ -41,6 +41,9 @@ class SensorManager: NSObject, ObservableObject {
     
     func startTracking() { // start trackingu
         print("Start trackingu")
+        print("Akcelerometr dostepny: \(motionManager.isAccelerometerAvailable)") // test dostepnosci
+        print("Gyro dostepny: \(motionManager.isGyroAvailable)")
+        print("DeviceMotion dostepny: \(motionManager.isDeviceMotionAvailable)")
         guard !isTracking else { return }
         isTracking = true
         currentFlightData.removeAll()
@@ -177,11 +180,12 @@ class SensorManager: NSObject, ObservableObject {
     
     // OBSLUGA IMU (AKCELEROMETR + ZYROSKOP)
     
+    
     private func startIMU() {
-        guard motionManager.isAccelerometerAvailable || motionManager.isGyroAvailable else { return }
+        guard motionManager.isAccelerometerAvailable && motionManager.isDeviceMotionAvailable else { return }
         
         motionManager.accelerometerUpdateInterval = 1.0 / 50.0 // 50 Hz
-        motionManager.gyroUpdateInterval = 1.0 / 50.0 // 50 Hz
+        motionManager.deviceMotionUpdateInterval = 1.0 / 50.0 // 50 Hz
         
         if motionManager.isAccelerometerAvailable {
             motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, error in
@@ -197,10 +201,10 @@ class SensorManager: NSObject, ObservableObject {
             }
         }
         
-        if motionManager.isGyroAvailable {
-            motionManager.startGyroUpdates(to: .main) { [weak self] data, error in
-                guard let self = self, let data = data, error == nil else { return }
-                self.gyroData = data
+        if motionManager.isDeviceMotionAvailable {
+            motionManager.startDeviceMotionUpdates(to: .main) { [weak self] motion, error in
+                guard let self = self, let motion = motion, error == nil else { return }
+                self.gyroData = motion
                 
                 let currentTime = Date()
                 var deltaTime = 0.0
@@ -209,14 +213,19 @@ class SensorManager: NSObject, ObservableObject {
                 }
                 self.lastUpdateTime = currentTime
                 
-                self.roll  += data.rotationRate.x * deltaTime * 180 / .pi // przeliczenie z rad/s na kąt w stopniach
-                self.pitch += data.rotationRate.y * deltaTime * 180 / .pi
-                self.yaw   += data.rotationRate.z * deltaTime * 180 / .pi
+                let rollDeg = motion.attitude.roll * deltaTime * 180 / .pi
+                let pitchDeg = motion.attitude.pitch * deltaTime * 180 / .pi
+                let yawDeg = motion.attitude.yaw * deltaTime * 180 / .pi
+                
+                self.roll = rollDeg
+                self.pitch = pitchDeg
+                self.yaw = yawDeg
+                
                 
                 if self.isTracking, var last = self.currentFlightData.last {
-                    last.gx = self.roll
-                    last.gy = self.pitch
-                    last.gz = self.yaw
+                    last.gx = motion.rotationRate.x
+                    last.gy = motion.rotationRate.y
+                    last.gz = motion.rotationRate.z
                     self.currentFlightData[self.currentFlightData.count - 1] = last
                 }
             }
@@ -225,7 +234,7 @@ class SensorManager: NSObject, ObservableObject {
     
     private func stopIMU() {
         if motionManager.isAccelerometerActive { motionManager.stopAccelerometerUpdates() }
-        if motionManager.isGyroActive { motionManager.stopGyroUpdates() }
+        if motionManager.isDeviceMotionActive { motionManager.stopDeviceMotionUpdates() }
     }
 }
 
@@ -248,10 +257,11 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
         }
         
         if let gyro = gyroData {
-            newData.gx = roll
-            newData.gy = pitch
-            newData.gz = yaw
+            newData.gx = gyro.rotationRate.x
+            newData.gy = gyro.rotationRate.y
+            newData.gz = gyro.rotationRate.z
         }
+        
         print("Update lokalizacji i dodanie nowych danych")
         currentFlightData.append(newData)
     }

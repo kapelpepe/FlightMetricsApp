@@ -97,6 +97,7 @@ struct FlightDetailView: View {
                                 Text("Tętno: \(Int(record.heartRateBPM)) bpm")
                                 Text("Wysokość: \(Int(record.altitudeMeters)) m")
                                 Text("Prędkość: \(Int(record.speedKnots)) kn")
+                                Text("Ciśnienie: \(Int(record.pressure)) hPa")
                                 Text("Ax: \(Double(record.ax))")
                                 Text("Ay: \(Double(record.ay))")
                                 Text("Az: \(Double(record.az))")
