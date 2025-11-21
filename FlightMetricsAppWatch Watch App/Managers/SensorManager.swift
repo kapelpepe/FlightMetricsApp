@@ -39,17 +39,6 @@ class SensorManager: NSObject, ObservableObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func requestHeartRateAuthorization() {
-        let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
-        healthStore.requestAuthorization(toShare: nil, read: [heartRateType]) { success, error in
-            if success {
-                print("Dostęp do tętna przyznany") // test czy dziala
-            } else {
-                print("Błąd przyznawania dostępu do tętna")
-            }
-        }
-    }
-    
     func startTracking() { // start trackingu
         print("Start trackingu")
         guard !isTracking else { return }

@@ -15,6 +15,7 @@ struct FlightMetricsAppApp: App {
     
     init() {
         _ = PhoneSession.shared
+        HealthAuthorizationManager.shared.requestAuthorization()
     }
     
     var body: some Scene {

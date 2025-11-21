@@ -22,6 +22,7 @@
 		236B28A22EAD4A13008112BD /* FlightRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236B28A12EAD4A13008112BD /* FlightRecord.swift */; };
 		236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 236B28A32EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld */; };
 		236C2F2B2EAAB6B40034CA01 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344FBAB2E9D5C0B00E010F9 /* FlightData.swift */; };
+		236D18F92ED0F0470098E07F /* HealthAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236D18F82ED0F0450098E07F /* HealthAuthorizationManager.swift */; };
 		2374E2B22EC2302800EDD47A /* FlightGyroscopeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */; };
 		2374E2B42EC246CA00EDD47A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374E2B32EC246CA00EDD47A /* SettingsView.swift */; };
 		23A927EC2EBAB60C0059E4DB /* FlightStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A927EB2EBAB60C0059E4DB /* FlightStatsManager.swift */; };
@@ -113,6 +114,7 @@
 		236B289F2EAD499A008112BD /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		236B28A12EAD4A13008112BD /* FlightRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRecord.swift; sourceTree = "<group>"; };
 		236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightMetricsApp.xcdatamodel; sourceTree = "<group>"; };
+		236D18F82ED0F0450098E07F /* HealthAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAuthorizationManager.swift; sourceTree = "<group>"; };
 		2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightGyroscopeView.swift; sourceTree = "<group>"; };
 		2374E2B32EC246CA00EDD47A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2388345E2EC7AAC800AA3DFB /* FlightMetricsAppWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlightMetricsAppWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -210,6 +212,7 @@
 		2344FB9E2E9D530000E010F9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				236D18F82ED0F0450098E07F /* HealthAuthorizationManager.swift */,
 				2344FBA52E9D57D300E010F9 /* PhoneSession.swift */,
 				236B289F2EAD499A008112BD /* PersistenceController.swift */,
 				234885F22EAE98E60028D73B /* FlightSessionManager.swift */,
@@ -607,6 +610,7 @@
 				23C28C9B2EB41C5B0094A20B /* FlightMapView.swift in Sources */,
 				236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */,
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
+				236D18F92ED0F0470098E07F /* HealthAuthorizationManager.swift in Sources */,
 				231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */,
 				23304D6A2EBF7B8B006FD28A /* FlightChartCardView.swift in Sources */,
 				234885F52EAE9ACA0028D73B /* HomeView.swift in Sources */,
@@ -833,6 +837,9 @@
 				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie do HealthKit.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -866,6 +873,9 @@
 				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie do HealthKit.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -972,6 +982,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pozwól aplikacji na dostęp do lokalizacji.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1008,6 +1021,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pozwól aplikacji na dostęp do lokalizacji.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
