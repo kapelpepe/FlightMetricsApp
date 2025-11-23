@@ -16,6 +16,7 @@ class SensorManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     private let barometer = CMAltimeter()
     private let healthStore = HKHealthStore()
+    private var workoutSession: HKWorkoutSession?
     private let motionManager = CMMotionManager()
     
     @Published var currentPressure: Double? = nil
@@ -47,6 +48,24 @@ class SensorManager: NSObject, ObservableObject {
         }
     }
     
+    func startBackgroundWorkout() {
+        let config = HKWorkoutConfiguration()
+        config.activityType = .other
+        config.locationType = .outdoor
+        
+        do {
+            workoutSession = try HKWorkoutSession(healthStore: healthStore, configuration: config)
+            workoutSession?.startActivity(with: Date())
+        } catch {
+            print("Workout error")
+        }
+    }
+    
+    func stopBackgroundWorkout() {
+        workoutSession?.stopActivity(with: Date())
+        workoutSession?.end()
+    }
+    
     func startTracking() { // start trackingu
         print("Start trackingu")
         print("Akcelerometr dostepny: \(motionManager.isAccelerometerAvailable)") // test dostepnosci
@@ -56,6 +75,7 @@ class SensorManager: NSObject, ObservableObject {
         isTracking = true
         currentFlightData.removeAll()
         requestLocationPermissionIfNeeded()
+        startBackgroundWorkout()
         
         // MOCK - dane testowe
         /*
@@ -110,6 +130,7 @@ class SensorManager: NSObject, ObservableObject {
         }
         
         locationManager.stopUpdatingLocation()
+        stopBackgroundWorkout()
         let fileURL = saveDataToJSON()
         return fileURL
     }
