@@ -9,8 +9,8 @@ import SwiftUI
 import WatchConnectivity
 
 struct WatchContentView: View {
-    @State private var isRunning = false
     
+    @State private var isRunning = false
     @ObservedObject var sensorManager = SensorManager.shared
     
     let flightTypes = ["Lot rekreacyjny", "Lot służbowy", "Lot treningowy", "Inny"]
@@ -44,6 +44,7 @@ struct WatchContentView: View {
             }
             RecordingOverlay(isRunning: $isRunning)
                 .padding(5)
+                .offset(x: 0, y: -40)
         }
         .padding()
         .onAppear {
@@ -53,42 +54,47 @@ struct WatchContentView: View {
 }
 
 struct RecordingOverlay: View {
-    @Binding var isRunning: Bool
-    @State private var startDate = Date()
-    @State private var elapsedTime = 0
-    @State private var showDot = true
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @Binding var isRunning: Bool
+    @ObservedObject var sensorManager = SensorManager.shared
+    
+    @State private var showDot = true
+    @State private var dotTimer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
     var body: some View {
-        HStack(spacing: 5) {
-            if isRunning {
+        if isRunning, let start = sensorManager.workoutStartDate {
+            HStack(spacing: 6) {
                 Circle()
                     .fill(Color.red)
                     .frame(width: 10, height: 10)
-                    .opacity(showDot ? 1 : 0.2)
+                    .opacity(showDot ? 1.0 : 0.2)
                 
-                Text(timeString(from: elapsedTime))
-                    .font(.caption2)
-                    .monospacedDigit()
+                TimelineView(.periodic(from: Date(), by: 1)) { timeline in
+                    Text(timeString(since: start, now: timeline.date))
+                        .font(.caption2)
+                        .monospacedDigit()
+                }
+            }
+            .padding(6)
+            .background(Color.black.opacity(0.3))
+            .cornerRadius(6)
+            .onReceive(dotTimer) { _ in
+                showDot.toggle()
             }
         }
-        .onAppear {
-            startDate = Date()
-            elapsedTime = 0
-            showDot = true
-        }
-        .onReceive(timer) { _ in
-            guard isRunning else { return }
-            elapsedTime = Int(Date().timeIntervalSince(startDate))
-            showDot.toggle()
-        }
-        .padding(5)
-        .background(Color.black.opacity(0.3))
-        .cornerRadius(5)
     }
     
-    func timeString(from seconds: Int) -> String {
-        String(format: "%02d:%02d", seconds / 60, seconds % 60)
+    private func timeString(since start: Date, now: Date) -> String {
+        let total = Int(now.timeIntervalSince(start))
+        
+        let hours = total / 3600
+        let minutes = (total % 3600) / 60
+        let seconds = total % 60
+        
+        if hours > 0 {
+            return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            return String(format: "%02d:%02d", minutes, seconds)
+        }
     }
 }

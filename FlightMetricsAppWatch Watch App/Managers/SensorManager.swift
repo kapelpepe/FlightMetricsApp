@@ -24,6 +24,7 @@ class SensorManager: NSObject, ObservableObject {
     @Published var accelerometerData: CMAccelerometerData? = nil
     @Published var gyroData: CMDeviceMotion? = nil
     @Published var selectedFlightType: String = "Lot rekreacyjny"
+    @Published var workoutStartDate: Date? // czas sesji treningowej wykorzystywany w UI
     
     private var currentFlightData: [FlightData] = []
     private var isTracking = false
@@ -56,6 +57,7 @@ class SensorManager: NSObject, ObservableObject {
         do {
             workoutSession = try HKWorkoutSession(healthStore: healthStore, configuration: config)
             workoutSession?.startActivity(with: Date())
+            workoutStartDate = Date()
         } catch {
             print("Workout error")
         }
@@ -64,6 +66,7 @@ class SensorManager: NSObject, ObservableObject {
     func stopBackgroundWorkout() {
         workoutSession?.stopActivity(with: Date())
         workoutSession?.end()
+        workoutStartDate = nil
     }
     
     func startTracking() { // start trackingu
