@@ -39,6 +39,14 @@ class SensorManager: NSObject, ObservableObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
+    func requestLocationPermissionIfNeeded() {
+        let status = locationManager.authorizationStatus
+        
+        if status == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+    }
+    
     func startTracking() { // start trackingu
         print("Start trackingu")
         print("Akcelerometr dostepny: \(motionManager.isAccelerometerAvailable)") // test dostepnosci
@@ -47,6 +55,7 @@ class SensorManager: NSObject, ObservableObject {
         guard !isTracking else { return }
         isTracking = true
         currentFlightData.removeAll()
+        requestLocationPermissionIfNeeded()
         
         // MOCK - dane testowe
         /*
@@ -83,19 +92,16 @@ class SensorManager: NSObject, ObservableObject {
         currentFlightData.append(contentsOf: [firstData, secondData])
         */
         
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation() // start GPS
         startBarometer() // start barometru
         startHeartRateQuery() // start pomiaru tetna
         startIMU() // start IMU
-        
+        locationManager.startUpdatingLocation() // start GPS
     }
     
     func stopTracking() -> URL? { // stop trackingu
         print("Stop trackingu")
         guard isTracking else { return nil }
         isTracking = false
-        locationManager.stopUpdatingLocation()
         barometer.stopRelativeAltitudeUpdates()
         stopIMU()
         
@@ -103,6 +109,7 @@ class SensorManager: NSObject, ObservableObject {
             healthStore.stop(query)
         }
         
+        locationManager.stopUpdatingLocation()
         let fileURL = saveDataToJSON()
         return fileURL
     }
@@ -182,7 +189,7 @@ class SensorManager: NSObject, ObservableObject {
     
     
     private func startIMU() {
-        guard motionManager.isAccelerometerAvailable && motionManager.isDeviceMotionAvailable else { return }
+        guard motionManager.isAccelerometerAvailable || motionManager.isDeviceMotionAvailable else { return }
         
         motionManager.accelerometerUpdateInterval = 1.0 / 50.0 // 50 Hz
         motionManager.deviceMotionUpdateInterval = 1.0 / 50.0 // 50 Hz
@@ -249,6 +256,8 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
         newData.flightType = selectedFlightType
         
         newData.heartRateBPM = currentHeartRate
+        
+        newData.pressure = currentPressure
         
         if let acc = accelerometerData {
             newData.ax = acc.acceleration.x
