@@ -21,7 +21,16 @@ struct FlightChartCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            let trimmedData = data.dropFirst(2)
+            let trimmedData = data.dropFirst(3)
+            let values = trimmedData.map { $0.1 }
+            
+            let avg = FlightStatsManager.average(of: values) ?? 0.0
+            let median = FlightStatsManager.median(of: values) ?? 0.0
+            let minValue = FlightStatsManager.minValue(of: values) ?? 0.0
+            let maxValue = FlightStatsManager.maxValue(of: values) ?? 0.0
+            
+            let delta = max(abs(maxValue - avg), abs(minValue - avg))
+            
             Text(title)
                 .font(.headline)
                 .padding(.bottom, 4)
@@ -37,6 +46,7 @@ struct FlightChartCardView: View {
                 }
             }
             .frame(height: height)
+            .chartYScale(domain: (avg - delta)...(avg + delta))
             
             Button {
                 withAnimation(.spring()) {
@@ -57,19 +67,10 @@ struct FlightChartCardView: View {
             
             if showStats {
                 VStack(alignment: .leading, spacing: 4) {
-                    let values = trimmedData.map { $0.1 }
-                    if let avg = FlightStatsManager.average(of: values) {
-                        Text("Średnia: \(String(format: "%.1f", avg)) \(unit)")
-                    }
-                    if let median = FlightStatsManager.median(of: values) {
-                        Text("Mediana: \(String(format: "%.1f", median)) \(unit)")
-                    }
-                    if let max = FlightStatsManager.maxValue(of: values) {
-                        Text("Maksimum: \(String(format: "%.1f", max)) \(unit)")
-                    }
-                    if let min = FlightStatsManager.minValue(of: values) {
-                        Text("Minimum: \(String(format: "%.1f", min)) \(unit)")
-                    }
+                    Text("Średnia: \(String(format: "%.1f", avg)) \(unit)")
+                    Text("Mediana: \(String(format: "%.1f", median)) \(unit)")
+                    Text("Maksimum: \(String(format: "%.1f", maxValue)) \(unit)")
+                    Text("Minimum: \(String(format: "%.1f", minValue)) \(unit)")
                 }
                 .font(.footnote)
                 .foregroundColor(.secondary)
