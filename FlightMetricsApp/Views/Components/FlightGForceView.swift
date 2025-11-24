@@ -30,10 +30,7 @@ struct FlightGForceView: View {
                 title: "Siła G",
                 data: gData,
                 unit: "G",
-                chartColor: { val in
-                    guard let val = val else { return .gray }
-                    return val > 1 ? .red : .green
-                },
+                chartColor: { _ in .orange },
                 height: 280,
                 width: 400
             )

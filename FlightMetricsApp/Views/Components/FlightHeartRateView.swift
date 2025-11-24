@@ -23,16 +23,7 @@ struct FlightHeartRateView: View {
                 title: "Tętno",
                 data: records.map { ($0.timestamp, $0.heartRateBPM) },
                 unit: "BPM",
-                chartColor: { val in
-                    guard let val = val else { return .gray }
-                    switch val {
-                    case ..<60: return .blue
-                    case 60..<120: return .green
-                    case 120..<160: return .yellow
-                    case 160...: return .red
-                    default: return .gray
-                    }
-                },
+                chartColor: { _ in .green },
                 height: 280,
                 width: 400
             )
