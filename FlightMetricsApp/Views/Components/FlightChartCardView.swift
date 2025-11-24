@@ -21,12 +21,13 @@ struct FlightChartCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+            let trimmedData = data.dropFirst(2)
             Text(title)
                 .font(.headline)
                 .padding(.bottom, 4)
             
             Chart {
-                ForEach(data.dropFirst(), id: \.0) { point in
+                ForEach(trimmedData, id: \.0) { point in
                     LineMark(
                         x: .value("Czas", point.0),
                         y: .value(title, point.1)
@@ -56,7 +57,7 @@ struct FlightChartCardView: View {
             
             if showStats {
                 VStack(alignment: .leading, spacing: 4) {
-                    let values = data.map { $0.1 }
+                    let values = trimmedData.map { $0.1 }
                     if let avg = FlightStatsManager.average(of: values) {
                         Text("Średnia: \(String(format: "%.1f", avg)) \(unit)")
                     }
