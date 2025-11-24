@@ -49,7 +49,7 @@ struct FlightDetailView: View {
                         HStack {
                             Text("Dystans:")
                             Spacer()
-                            Text("\(String(format: "%.1f", session.distance)) km")
+                            Text(FlightSessionManager.formattedDistance(session))
                                 .foregroundColor(.secondary)
                         }
                         

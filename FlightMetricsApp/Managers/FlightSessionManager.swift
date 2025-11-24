@@ -47,17 +47,65 @@ class FlightSessionManager {
         return formatter.string(from: session.startDate)
     }
     
+    static func formattedDistance(_ session: FlightSession) -> String {
+        let distanceKm = session.distance
+        
+        if distanceKm < 1 {
+            let meters = Int(distanceKm * 1000)
+            return "\(meters) m"
+        } else {
+            return String(format: "%.1f km", distanceKm)
+        }
+    }
+    
     static func formattedFlightTime(_ session: FlightSession) -> String {
-        let hours = Int(session.flightTime / 3600)
-        let minutes = Int((session.flightTime.truncatingRemainder(dividingBy: 3600)) / 60)
-        return "\(hours)h \(minutes)min"
+        let total = Int(session.flightTime)
+        
+        let hours = total / 3600
+        let minutes = (total % 3600) / 60
+        let seconds = total % 60
+        
+        if hours > 0 {
+            return "\(hours) h \(minutes) min"
+        }
+        if minutes > 0 {
+            return "\(minutes) min \(seconds) s"
+        }
+        else {
+            return "\(seconds) s"
+        }
     }
 }
 
 extension FlightSessionManager { // rozszerzenie formatowania daty, potrzebne przy Total Time (Double)
-    static func formattedFlightTime(_ totalSeconds: Double) -> String {
-        let hours = Int(totalSeconds / 3600)
-        let minutes = Int((totalSeconds.truncatingRemainder(dividingBy: 3600)) / 60)
-        return "\(hours)h \(minutes)min"
+    static func formattedFlightTime(_ totalTime: Double) -> String {
+        let total = Int(totalTime)
+        
+        let hours = total / 3600
+        let minutes = (total % 3600) / 60
+        let seconds = total % 60
+        
+        if hours > 0 {
+            return "\(hours) h \(minutes) min"
+        }
+        if minutes > 0 {
+            return "\(minutes) min \(seconds) s"
+        }
+        else {
+            return "\(seconds) s"
+        }
+    }
+}
+
+extension FlightSessionManager { // rozszerzenie formatowania dystansu, potrzebne przy Total Distance (Double)
+    static func formattedDistance(_ totalDist: Double) -> String {
+        let distanceKm = totalDist
+        
+        if distanceKm < 1 {
+            let meters = Int(distanceKm * 1000)
+            return "\(meters) m"
+        } else {
+            return String(format: "%.1f km", distanceKm)
+        }
     }
 }

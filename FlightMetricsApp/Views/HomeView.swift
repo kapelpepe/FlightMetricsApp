@@ -151,7 +151,6 @@ struct HomeView: View {
                 let records = flightDataArray.map { FlightRecord(from: $0, context: viewContext) }
                 do { try viewContext.save() } catch { print("Błąd zapisu Core Data") }
                 
-                // Teraz tworzysz FlightSession z tych rekordów
                 let session = FlightSession(from: records, context: viewContext)
                 do { try viewContext.save() } catch { print("Błąd zapisu FlightSession") }
             }
@@ -163,8 +162,9 @@ struct FlightCardView: View {
     var session: FlightSession
     
     var body: some View {
-        var formattedDate = FlightSessionManager.formattedDate(session)
+        let formattedDate = FlightSessionManager.formattedDate(session)
         let formattedTime = FlightSessionManager.formattedFlightTime(session)
+        let formattedDistance = FlightSessionManager.formattedDistance(session)
         
         return VStack(alignment: .leading, spacing: 6) {
             FlightMapView(coordinates: session.routeCoordinates, interactive: false,
@@ -177,7 +177,7 @@ struct FlightCardView: View {
                 .font(.subheadline)
                 .foregroundColor(.textSecondary)
             HStack {
-                Text("Dystans: \(String(format: "%.1f", session.distance)) km")
+                Text("Dystans: \(formattedDistance)")
                 Spacer()
                 Text("Czas lotu: \(formattedTime)")
             }
@@ -223,7 +223,7 @@ struct StatsCardView: View {
                 Spacer()
                 VStack(alignment: .leading) {
                     Text("Łączny dystans:")
-                    Text("\(String(format: "%.1f", totalDistance)) km")
+                    Text(FlightSessionManager.formattedDistance(totalDistance))
                         .bold()
                 }
             }
@@ -234,9 +234,4 @@ struct StatsCardView: View {
         .cornerRadius(20)
         .shadow(color: Color.black.opacity(0.08), radius: 4, x: 0, y: 2)
     }
-}
-
-#Preview {
-    HomeView()
-        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }
