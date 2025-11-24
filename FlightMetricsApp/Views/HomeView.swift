@@ -167,7 +167,8 @@ struct FlightCardView: View {
         let formattedTime = FlightSessionManager.formattedFlightTime(session)
         
         return VStack(alignment: .leading, spacing: 6) {
-            FlightMapView(coordinates: session.routeCoordinates, interactive: false)
+            FlightMapView(coordinates: session.routeCoordinates, interactive: false,
+                edgePadding: UIEdgeInsets(top:40, left: 20, bottom: 20, right: 20))
                 .frame(height: 120)
                 .cornerRadius(10)
             Text("\(session.flightType)")

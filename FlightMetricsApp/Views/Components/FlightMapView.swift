@@ -12,6 +12,7 @@ import MapKit
 struct FlightMapView: UIViewRepresentable {
     var coordinates: [CLLocationCoordinate2D]
     var interactive : Bool = false
+    var edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -55,7 +56,7 @@ struct FlightMapView: UIViewRepresentable {
             let rect = polyline.boundingMapRect
             uiView.setVisibleMapRect(
                 rect,
-                edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50),
+                edgePadding: edgePadding,
                 animated: true
             )
         } else if let first = coordinates.first {
