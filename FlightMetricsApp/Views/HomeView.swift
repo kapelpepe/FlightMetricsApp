@@ -30,8 +30,7 @@ struct HomeView: View {
                         
                         HStack {
                             HStack { // header
-                                Image(systemName: "airplane.circle.fill")
-                                //Image("AppIconLogo")
+                                Image("AppIconLogo")
                                     .resizable()
                                     .frame(width: 44, height: 44)
                                     .foregroundColor(.appFirstAccent)
