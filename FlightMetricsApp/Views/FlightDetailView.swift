@@ -80,6 +80,10 @@ struct FlightDetailView: View {
                         FlightHeartRateView(records: records)
                     }
                     
+                    if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
+                        FlightBloodOxygenView(records: records)
+                    }
+                    
                     Divider()
                     
                     if let records = session.records?.sorted(by: { $0.timestamp < $1.timestamp }) {
@@ -95,6 +99,7 @@ struct FlightDetailView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("Data: \(record.timestamp.formatted())")
                                 Text("Tętno: \(Int(record.heartRateBPM)) bpm")
+                                Text("Natlenienie krwi: \(Int(record.bloodOxygen)) %")
                                 Text("Wysokość: \(Int(record.altitudeMeters)) m")
                                 Text("Prędkość: \(Int(record.speedKnots)) kn")
                                 Text("Ciśnienie: \(Int(record.pressure)) hPa")

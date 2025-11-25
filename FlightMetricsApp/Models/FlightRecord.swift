@@ -26,6 +26,7 @@ extension FlightRecord {
     @NSManaged public var pressure: Double
     @NSManaged public var relativeAltitude: Double
     @NSManaged public var heartRateBPM: Double
+    @NSManaged public var bloodOxygen: Double
     @NSManaged public var ax: Double
     @NSManaged public var ay: Double
     @NSManaged public var az: Double
@@ -44,6 +45,7 @@ extension FlightRecord {
         self.pressure = flightData.pressure ?? 0
         self.relativeAltitude = flightData.relativeAltitude ?? 0
         self.heartRateBPM = flightData.heartRateBPM ?? 0
+        self.bloodOxygen = flightData.bloodOxygen ?? 0
         self.ax = flightData.ax ?? 0
         self.ay = flightData.ay ?? 0
         self.az = flightData.az ?? 0

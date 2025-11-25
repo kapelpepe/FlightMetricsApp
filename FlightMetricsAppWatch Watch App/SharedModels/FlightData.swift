@@ -18,6 +18,7 @@ struct FlightData: Codable, Identifiable {
     var pressure: Double? // cisnienie z barometru w hPa (moze byc nil przed rozpoczeciem dzialania czujnika - barometr dziala w trybie asynchronicznym)
     var relativeAltitude: Double? // wysokosc wzgledna (po starcie) pobierana z barometru
     var heartRateBPM: Double? // wartosc tetna w BPM pobrana z czujnika tetna
+    var bloodOxygen: Double? // wartosc natlenienia krwi
     var ax: Double? // koordynaty z akcelometru
     var ay: Double?
     var az: Double?
@@ -35,6 +36,7 @@ struct FlightData: Codable, Identifiable {
         self.pressure = nil
         self.relativeAltitude = nil
         self.heartRateBPM = nil
+        self.bloodOxygen = nil
         self.ax = nil
         self.ay = nil
         self.az = nil

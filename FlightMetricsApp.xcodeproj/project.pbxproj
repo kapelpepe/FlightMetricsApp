@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230AC6532ED61D38007320DC /* FlightBloodOxygenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230AC6522ED61CF6007320DC /* FlightBloodOxygenView.swift */; };
 		231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */; };
 		23304D6A2EBF7B8B006FD28A /* FlightChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23304D692EBF7B8B006FD28A /* FlightChartCardView.swift */; };
 		23304D6C2EBF7C74006FD28A /* FlightGForceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		230AC6522ED61CF6007320DC /* FlightBloodOxygenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightBloodOxygenView.swift; sourceTree = "<group>"; };
 		231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		23304D692EBF7B8B006FD28A /* FlightChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightChartCardView.swift; sourceTree = "<group>"; };
 		23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightGForceView.swift; sourceTree = "<group>"; };
@@ -269,9 +271,10 @@
 				23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */,
 				23304D692EBF7B8B006FD28A /* FlightChartCardView.swift */,
 				23BE945C2EB9551100D574FA /* FlightChartsView.swift */,
-				23304D6D2EBF9722006FD28A /* FlightHeartRateView.swift */,
-				23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */,
 				2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */,
+				23304D6D2EBF9722006FD28A /* FlightHeartRateView.swift */,
+				230AC6522ED61CF6007320DC /* FlightBloodOxygenView.swift */,
+				23304D6B2EBF7C74006FD28A /* FlightGForceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				234885F12EAE92790028D73B /* FlightSession.swift in Sources */,
 				23BE945D2EB9551100D574FA /* FlightChartsView.swift in Sources */,
 				23C28C9B2EB41C5B0094A20B /* FlightMapView.swift in Sources */,
+				230AC6532ED61D38007320DC /* FlightBloodOxygenView.swift in Sources */,
 				236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */,
 				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
 				236D18F92ED0F0470098E07F /* HealthAuthorizationManager.swift in Sources */,
@@ -837,9 +841,9 @@
 				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie do HealthKit.";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna i natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna oraz natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie i natlenieniu krwi do HealthKit.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -873,9 +877,9 @@
 				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie do HealthKit.";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna i natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna oraz natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie i natlenieniu krwi do HealthKit.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -982,9 +986,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie.";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna oraz natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna i natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie i natlenieniu krwi.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pozwól aplikacji na dostęp do lokalizacji.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1021,9 +1025,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie.";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna oraz natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna i natlenienia krwi.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie i natlenieniu krwi.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pozwól aplikacji na dostęp do lokalizacji.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "NSHealthShareUsageDescription = Aplikacja potrzebuje dostępu do tętna, aby śledzić metryki lotów.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

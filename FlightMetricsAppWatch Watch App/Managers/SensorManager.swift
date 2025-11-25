@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation // framework do obslugi modulu GPS
 import CoreMotion // framework do obslugi barometru, akcelometru i zyroskopu
-import HealthKit // framework do obslugi czujnika tetna
+import HealthKit // framework do obslugi czujnika tetna i natlenienia krwi
 
 class SensorManager: NSObject, ObservableObject {
     static let shared = SensorManager() // singleton
@@ -21,6 +21,7 @@ class SensorManager: NSObject, ObservableObject {
     
     @Published var currentPressure: Double? = nil
     @Published var currentHeartRate: Double? = nil
+    @Published var currentBloodOxygen: Double? = nil
     @Published var accelerometerData: CMAccelerometerData? = nil
     @Published var gyroData: CMDeviceMotion? = nil
     @Published var selectedFlightType: String = "Lot rekreacyjny"
@@ -117,6 +118,7 @@ class SensorManager: NSObject, ObservableObject {
         
         startBarometer() // start barometru
         startHeartRateQuery() // start pomiaru tetna
+        startBloodOxygenQuery() // start pomiaru natlenienia krwi
         startIMU() // start IMU
         locationManager.startUpdatingLocation() // start GPS
     }
@@ -209,8 +211,33 @@ class SensorManager: NSObject, ObservableObject {
         }
     }
     
-    // OBSLUGA IMU (AKCELEROMETR + ZYROSKOP)
+    // OBSLUGA CZUJNIKA NATLENIENIA KRWI
     
+    private func startBloodOxygenQuery() {
+        guard HKHealthStore.isHealthDataAvailable() else { return }
+        
+        let oxygenType = HKQuantityType.quantityType(forIdentifier: .oxygenSaturation)!
+        
+        let query = HKStatisticsQuery(quantityType: oxygenType,
+                                      quantitySamplePredicate: nil,
+                                      options: .mostRecent) { [weak self] _, result, _ in
+            guard let self = self else { return }
+            if let quantity = result?.mostRecentQuantity() {
+                let percentage = quantity.doubleValue(for: HKUnit.percent()) * 100
+                DispatchQueue.main.async {
+                    self.currentBloodOxygen = percentage
+                    if self.isTracking, var last = self.currentFlightData.last {
+                        last.bloodOxygen = percentage
+                        self.currentFlightData[self.currentFlightData.count - 1] = last
+                    }
+                }
+            }
+        }
+        
+        healthStore.execute(query)
+    }
+    
+    // OBSLUGA IMU (AKCELEROMETR + ZYROSKOP)
     
     private func startIMU() {
         guard motionManager.isAccelerometerAvailable || motionManager.isDeviceMotionAvailable else { return }
@@ -280,6 +307,8 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
         newData.flightType = selectedFlightType
         
         newData.heartRateBPM = currentHeartRate
+        
+        newData.bloodOxygen = currentBloodOxygen
         
         newData.pressure = currentPressure
         

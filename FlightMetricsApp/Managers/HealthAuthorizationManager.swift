@@ -20,9 +20,14 @@ class HealthAuthorizationManager {
             print("Brak typu heartRate")
             return
         }
+        
+        guard let bloodOxygen = HKQuantityType.quantityType(forIdentifier: .oxygenSaturation) else {
+            print("Brak typu bloodOxygen")
+            return
+        }
 
         let toShare: Set<HKSampleType> = [] // pusty blok share, bo nic nie zapisujemy spowrotem w danych zdrowotnych, wymagany przez funkcje requestAuth
-        let toRead: Set<HKObjectType> = [heartRate]
+        let toRead: Set<HKObjectType> = [heartRate, bloodOxygen]
         
         healthStore.requestAuthorization(toShare: toShare, read: toRead) { success, error in
             if success {
