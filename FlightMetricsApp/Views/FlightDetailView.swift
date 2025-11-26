@@ -53,12 +53,14 @@ struct FlightDetailView: View {
                                 .foregroundColor(.secondary)
                         }
                         
+                        /*
                         HStack {
                             Text("Liczba rekordów:")
                             Spacer()
                             Text("\(session.records?.count ?? 0)")
                                 .foregroundColor(.secondary)
                         }
+                        */
                     }
                     .font(.headline)
                     
@@ -90,6 +92,7 @@ struct FlightDetailView: View {
                         FlightGForceView(records: records)
                     }
                     
+                    /*
                     Text("Dane z FlightRecords")
                         .font(.title3)
                         .padding(.top, 10)
@@ -112,10 +115,11 @@ struct FlightDetailView: View {
                             }
                             .font(.footnote)
                             .padding(8)
-                            .background(Color(.systemGray6))
+                            .background(Color(.CardBackground))
                             .cornerRadius(8)
                         }
                     }
+                    */
                 }
                 .padding()
             }
