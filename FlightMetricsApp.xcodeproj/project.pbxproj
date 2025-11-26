@@ -841,6 +841,7 @@
 				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Flight Metrics";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna i natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna oraz natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie i natlenieniu krwi do HealthKit.";
@@ -877,6 +878,7 @@
 				DEVELOPMENT_TEAM = K43KXWH9J2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Flight Metrics";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Aplikacja potrzebuje dostępu do Twoich rekordów zdrowotnych, aby wyświetlać historię tętna i natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Aplikacja prosi o dostęp do danych medycznych - tętna oraz natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Aplikacja wymaga zgody na zapisywanie danych o tętnie i natlenieniu krwi do HealthKit.";
@@ -985,7 +987,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = "Flight Metrics";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna oraz natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna i natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie i natlenieniu krwi.";
@@ -1024,7 +1026,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlightMetricsAppWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = FlightMetricsAppWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = "Flight Metrics";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Wymagany jest dostęp do historii pomiarów tętna oraz natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Wymagany jest dostęp do pomiaru tętna i natlenienia krwi.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Wymagany jest dostęp do aktualizowania danych o tętnie i natlenieniu krwi.";
