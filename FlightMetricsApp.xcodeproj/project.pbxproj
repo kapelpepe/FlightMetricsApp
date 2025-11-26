@@ -34,15 +34,10 @@
 		3B9EF9922E915C3C00728123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9912E915C3C00728123 /* Assets.xcassets */; };
 		3B9EF9952E915C3C00728123 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9942E915C3C00728123 /* Preview Assets.xcassets */; };
 		3B9EF99F2E915C3C00728123 /* FlightMetricsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF99E2E915C3C00728123 /* FlightMetricsAppTests.swift */; };
-		3B9EF9A92E915C3C00728123 /* FlightMetricsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9A82E915C3C00728123 /* FlightMetricsAppUITests.swift */; };
-		3B9EF9AB2E915C3C00728123 /* FlightMetricsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9AA2E915C3C00728123 /* FlightMetricsAppUITestsLaunchTests.swift */; };
 		3B9EF9BE2E9168D000728123 /* FlightMetricsAppWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9BD2E9168D000728123 /* FlightMetricsAppWatchApp.swift */; };
 		3B9EF9C02E9168D000728123 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9BF2E9168D000728123 /* WatchContentView.swift */; };
 		3B9EF9C22E9168D300728123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9C12E9168D300728123 /* Assets.xcassets */; };
 		3B9EF9C52E9168D300728123 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9C42E9168D300728123 /* Preview Assets.xcassets */; };
-		3B9EF9CF2E9168D300728123 /* FlightMetricsAppWatch_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9CE2E9168D300728123 /* FlightMetricsAppWatch_Watch_AppTests.swift */; };
-		3B9EF9D92E9168D300728123 /* FlightMetricsAppWatch_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9D82E9168D300728123 /* FlightMetricsAppWatch_Watch_AppUITests.swift */; };
-		3B9EF9DB2E9168D400728123 /* FlightMetricsAppWatch_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9DA2E9168D400728123 /* FlightMetricsAppWatch_Watch_AppUITestsLaunchTests.swift */; };
 		3B9EF9DE2E9168D400728123 /* FlightMetricsAppWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3B9EF9BB2E9168CF00728123 /* FlightMetricsAppWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -53,27 +48,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3B9EF9892E915C3900728123;
 			remoteInfo = FlightMetricsApp;
-		};
-		3B9EF9A52E915C3C00728123 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B9EF9822E915C3900728123 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B9EF9892E915C3900728123;
-			remoteInfo = FlightMetricsApp;
-		};
-		3B9EF9CB2E9168D300728123 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B9EF9822E915C3900728123 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B9EF9BA2E9168CF00728123;
-			remoteInfo = "FlightMetricsAppWatch Watch App";
-		};
-		3B9EF9D52E9168D300728123 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B9EF9822E915C3900728123 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B9EF9BA2E9168CF00728123;
-			remoteInfo = "FlightMetricsAppWatch Watch App";
 		};
 		3B9EF9DC2E9168D400728123 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -130,19 +104,11 @@
 		3B9EF9942E915C3C00728123 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B9EF99A2E915C3C00728123 /* FlightMetricsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightMetricsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF99E2E915C3C00728123 /* FlightMetricsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppTests.swift; sourceTree = "<group>"; };
-		3B9EF9A42E915C3C00728123 /* FlightMetricsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightMetricsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B9EF9A82E915C3C00728123 /* FlightMetricsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppUITests.swift; sourceTree = "<group>"; };
-		3B9EF9AA2E915C3C00728123 /* FlightMetricsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3B9EF9BB2E9168CF00728123 /* FlightMetricsAppWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlightMetricsAppWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF9BD2E9168D000728123 /* FlightMetricsAppWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppWatchApp.swift; sourceTree = "<group>"; };
 		3B9EF9BF2E9168D000728123 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		3B9EF9C12E9168D300728123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B9EF9C42E9168D300728123 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3B9EF9CA2E9168D300728123 /* FlightMetricsAppWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FlightMetricsAppWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B9EF9CE2E9168D300728123 /* FlightMetricsAppWatch_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppWatch_Watch_AppTests.swift; sourceTree = "<group>"; };
-		3B9EF9D42E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FlightMetricsAppWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B9EF9D82E9168D300728123 /* FlightMetricsAppWatch_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppWatch_Watch_AppUITests.swift; sourceTree = "<group>"; };
-		3B9EF9DA2E9168D400728123 /* FlightMetricsAppWatch_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppWatch_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,28 +126,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9EF9A12E915C3C00728123 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3B9EF9B82E9168CF00728123 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B9EF9C72E9168D300728123 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B9EF9D12E9168D300728123 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,10 +229,7 @@
 			children = (
 				3B9EF98C2E915C3900728123 /* FlightMetricsApp */,
 				3B9EF99D2E915C3C00728123 /* FlightMetricsAppTests */,
-				3B9EF9A72E915C3C00728123 /* FlightMetricsAppUITests */,
 				3B9EF9BC2E9168D000728123 /* FlightMetricsAppWatch Watch App */,
-				3B9EF9CD2E9168D300728123 /* FlightMetricsAppWatch Watch AppTests */,
-				3B9EF9D72E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests */,
 				3B9EF98B2E915C3900728123 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -297,10 +239,7 @@
 			children = (
 				3B9EF98A2E915C3900728123 /* FlightMetricsApp.app */,
 				3B9EF99A2E915C3C00728123 /* FlightMetricsAppTests.xctest */,
-				3B9EF9A42E915C3C00728123 /* FlightMetricsAppUITests.xctest */,
 				3B9EF9BB2E9168CF00728123 /* FlightMetricsAppWatch Watch App.app */,
-				3B9EF9CA2E9168D300728123 /* FlightMetricsAppWatch Watch AppTests.xctest */,
-				3B9EF9D42E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,15 +275,6 @@
 			path = FlightMetricsAppTests;
 			sourceTree = "<group>";
 		};
-		3B9EF9A72E915C3C00728123 /* FlightMetricsAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3B9EF9A82E915C3C00728123 /* FlightMetricsAppUITests.swift */,
-				3B9EF9AA2E915C3C00728123 /* FlightMetricsAppUITestsLaunchTests.swift */,
-			);
-			path = FlightMetricsAppUITests;
-			sourceTree = "<group>";
-		};
 		3B9EF9BC2E9168D000728123 /* FlightMetricsAppWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,23 +296,6 @@
 				3B9EF9C42E9168D300728123 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3B9EF9CD2E9168D300728123 /* FlightMetricsAppWatch Watch AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				3B9EF9CE2E9168D300728123 /* FlightMetricsAppWatch_Watch_AppTests.swift */,
-			);
-			path = "FlightMetricsAppWatch Watch AppTests";
-			sourceTree = "<group>";
-		};
-		3B9EF9D72E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3B9EF9D82E9168D300728123 /* FlightMetricsAppWatch_Watch_AppUITests.swift */,
-				3B9EF9DA2E9168D400728123 /* FlightMetricsAppWatch_Watch_AppUITestsLaunchTests.swift */,
-			);
-			path = "FlightMetricsAppWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,24 +338,6 @@
 			productReference = 3B9EF99A2E915C3C00728123 /* FlightMetricsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3B9EF9A32E915C3C00728123 /* FlightMetricsAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B9EF9B42E915C3C00728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppUITests" */;
-			buildPhases = (
-				3B9EF9A02E915C3C00728123 /* Sources */,
-				3B9EF9A12E915C3C00728123 /* Frameworks */,
-				3B9EF9A22E915C3C00728123 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B9EF9A62E915C3C00728123 /* PBXTargetDependency */,
-			);
-			name = FlightMetricsAppUITests;
-			productName = FlightMetricsAppUITests;
-			productReference = 3B9EF9A42E915C3C00728123 /* FlightMetricsAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		3B9EF9BA2E9168CF00728123 /* FlightMetricsAppWatch Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B9EF9DF2E9168D400728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppWatch Watch App" */;
@@ -459,42 +354,6 @@
 			productName = "FlightMetricsAppWatch Watch App";
 			productReference = 3B9EF9BB2E9168CF00728123 /* FlightMetricsAppWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
-		};
-		3B9EF9C92E9168D300728123 /* FlightMetricsAppWatch Watch AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B9EF9E32E9168D400728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppWatch Watch AppTests" */;
-			buildPhases = (
-				3B9EF9C62E9168D300728123 /* Sources */,
-				3B9EF9C72E9168D300728123 /* Frameworks */,
-				3B9EF9C82E9168D300728123 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B9EF9CC2E9168D300728123 /* PBXTargetDependency */,
-			);
-			name = "FlightMetricsAppWatch Watch AppTests";
-			productName = "FlightMetricsAppWatch Watch AppTests";
-			productReference = 3B9EF9CA2E9168D300728123 /* FlightMetricsAppWatch Watch AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3B9EF9D32E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B9EF9E62E9168D400728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppWatch Watch AppUITests" */;
-			buildPhases = (
-				3B9EF9D02E9168D300728123 /* Sources */,
-				3B9EF9D12E9168D300728123 /* Frameworks */,
-				3B9EF9D22E9168D300728123 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B9EF9D62E9168D300728123 /* PBXTargetDependency */,
-			);
-			name = "FlightMetricsAppWatch Watch AppUITests";
-			productName = "FlightMetricsAppWatch Watch AppUITests";
-			productReference = 3B9EF9D42E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -513,20 +372,8 @@
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 3B9EF9892E915C3900728123;
 					};
-					3B9EF9A32E915C3C00728123 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 3B9EF9892E915C3900728123;
-					};
 					3B9EF9BA2E9168CF00728123 = {
 						CreatedOnToolsVersion = 15.4;
-					};
-					3B9EF9C92E9168D300728123 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 3B9EF9BA2E9168CF00728123;
-					};
-					3B9EF9D32E9168D300728123 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 3B9EF9BA2E9168CF00728123;
 					};
 				};
 			};
@@ -545,10 +392,7 @@
 			targets = (
 				3B9EF9892E915C3900728123 /* FlightMetricsApp */,
 				3B9EF9992E915C3C00728123 /* FlightMetricsAppTests */,
-				3B9EF9A32E915C3C00728123 /* FlightMetricsAppUITests */,
 				3B9EF9BA2E9168CF00728123 /* FlightMetricsAppWatch Watch App */,
-				3B9EF9C92E9168D300728123 /* FlightMetricsAppWatch Watch AppTests */,
-				3B9EF9D32E9168D300728123 /* FlightMetricsAppWatch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -570,33 +414,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9EF9A22E915C3C00728123 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3B9EF9B92E9168CF00728123 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3B9EF9C52E9168D300728123 /* Preview Assets.xcassets in Resources */,
 				3B9EF9C22E9168D300728123 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B9EF9C82E9168D300728123 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B9EF9D22E9168D300728123 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,15 +462,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9EF9A02E915C3C00728123 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B9EF9AB2E915C3C00728123 /* FlightMetricsAppUITestsLaunchTests.swift in Sources */,
-				3B9EF9A92E915C3C00728123 /* FlightMetricsAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3B9EF9B72E9168CF00728123 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -660,23 +474,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9EF9C62E9168D300728123 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B9EF9CF2E9168D300728123 /* FlightMetricsAppWatch_Watch_AppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B9EF9D02E9168D300728123 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B9EF9DB2E9168D400728123 /* FlightMetricsAppWatch_Watch_AppUITestsLaunchTests.swift in Sources */,
-				3B9EF9D92E9168D300728123 /* FlightMetricsAppWatch_Watch_AppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -684,21 +481,6 @@
 			isa = PBXTargetDependency;
 			target = 3B9EF9892E915C3900728123 /* FlightMetricsApp */;
 			targetProxy = 3B9EF99B2E915C3C00728123 /* PBXContainerItemProxy */;
-		};
-		3B9EF9A62E915C3C00728123 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B9EF9892E915C3900728123 /* FlightMetricsApp */;
-			targetProxy = 3B9EF9A52E915C3C00728123 /* PBXContainerItemProxy */;
-		};
-		3B9EF9CC2E9168D300728123 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B9EF9BA2E9168CF00728123 /* FlightMetricsAppWatch Watch App */;
-			targetProxy = 3B9EF9CB2E9168D300728123 /* PBXContainerItemProxy */;
-		};
-		3B9EF9D62E9168D300728123 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B9EF9BA2E9168CF00728123 /* FlightMetricsAppWatch Watch App */;
-			targetProxy = 3B9EF9D52E9168D300728123 /* PBXContainerItemProxy */;
 		};
 		3B9EF9DD2E9168D400728123 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -830,7 +612,6 @@
 		3B9EF9AF2E915C3C00728123 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlightMetricsApp/FlightMetricsApp.entitlements;
@@ -867,7 +648,6 @@
 		3B9EF9B02E915C3C00728123 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlightMetricsApp/FlightMetricsApp.entitlements;
@@ -904,10 +684,10 @@
 		3B9EF9B22E915C3C00728123 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K43KXWH9J2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -923,10 +703,10 @@
 		3B9EF9B32E915C3C00728123 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K43KXWH9J2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -936,40 +716,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightMetricsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlightMetricsApp";
-			};
-			name = Release;
-		};
-		3B9EF9B52E915C3C00728123 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kacpergwiazda.FlightMetricsAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FlightMetricsApp;
-			};
-			name = Debug;
-		};
-		3B9EF9B62E915C3C00728123 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kacpergwiazda.FlightMetricsAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FlightMetricsApp;
 			};
 			name = Release;
 		};
@@ -1051,84 +797,6 @@
 			};
 			name = Release;
 		};
-		3B9EF9E42E9168D400728123 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kacpergwiazda.FlightMetricsAppWatch-Watch-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightMetricsAppWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlightMetricsAppWatch Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
-			};
-			name = Debug;
-		};
-		3B9EF9E52E9168D400728123 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kacpergwiazda.FlightMetricsAppWatch-Watch-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightMetricsAppWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlightMetricsAppWatch Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
-			};
-			name = Release;
-		};
-		3B9EF9E72E9168D400728123 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kacpergwiazda.FlightMetricsAppWatch-Watch-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "FlightMetricsAppWatch Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
-			};
-			name = Debug;
-		};
-		3B9EF9E82E9168D400728123 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kacpergwiazda.FlightMetricsAppWatch-Watch-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "FlightMetricsAppWatch Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1159,38 +827,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B9EF9B42E915C3C00728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B9EF9B52E915C3C00728123 /* Debug */,
-				3B9EF9B62E915C3C00728123 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		3B9EF9DF2E9168D400728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppWatch Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B9EF9E02E9168D400728123 /* Debug */,
 				3B9EF9E12E9168D400728123 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B9EF9E32E9168D400728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppWatch Watch AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B9EF9E42E9168D400728123 /* Debug */,
-				3B9EF9E52E9168D400728123 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B9EF9E62E9168D400728123 /* Build configuration list for PBXNativeTarget "FlightMetricsAppWatch Watch AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B9EF9E72E9168D400728123 /* Debug */,
-				3B9EF9E82E9168D400728123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
