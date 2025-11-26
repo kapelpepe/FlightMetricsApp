@@ -30,14 +30,11 @@
 		23BE945D2EB9551100D574FA /* FlightChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE945C2EB9551100D574FA /* FlightChartsView.swift */; };
 		23C28C9B2EB41C5B0094A20B /* FlightMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */; };
 		3B9EF98E2E915C3900728123 /* FlightMetricsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */; };
-		3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF98F2E915C3900728123 /* PhoneContentView.swift */; };
 		3B9EF9922E915C3C00728123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9912E915C3C00728123 /* Assets.xcassets */; };
-		3B9EF9952E915C3C00728123 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9942E915C3C00728123 /* Preview Assets.xcassets */; };
 		3B9EF99F2E915C3C00728123 /* FlightMetricsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF99E2E915C3C00728123 /* FlightMetricsAppTests.swift */; };
 		3B9EF9BE2E9168D000728123 /* FlightMetricsAppWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9BD2E9168D000728123 /* FlightMetricsAppWatchApp.swift */; };
 		3B9EF9C02E9168D000728123 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EF9BF2E9168D000728123 /* WatchContentView.swift */; };
 		3B9EF9C22E9168D300728123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9C12E9168D300728123 /* Assets.xcassets */; };
-		3B9EF9C52E9168D300728123 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9EF9C42E9168D300728123 /* Preview Assets.xcassets */; };
 		3B9EF9DE2E9168D400728123 /* FlightMetricsAppWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3B9EF9BB2E9168CF00728123 /* FlightMetricsAppWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -101,16 +98,13 @@
 		23C28C9A2EB41C5B0094A20B /* FlightMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMapView.swift; sourceTree = "<group>"; };
 		3B9EF98A2E915C3900728123 /* FlightMetricsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightMetricsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF98D2E915C3900728123 /* FlightMetricsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppApp.swift; sourceTree = "<group>"; };
-		3B9EF98F2E915C3900728123 /* PhoneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContentView.swift; sourceTree = "<group>"; };
 		3B9EF9912E915C3C00728123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B9EF9942E915C3C00728123 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B9EF99A2E915C3C00728123 /* FlightMetricsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightMetricsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF99E2E915C3C00728123 /* FlightMetricsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppTests.swift; sourceTree = "<group>"; };
 		3B9EF9BB2E9168CF00728123 /* FlightMetricsAppWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlightMetricsAppWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9EF9BD2E9168D000728123 /* FlightMetricsAppWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMetricsAppWatchApp.swift; sourceTree = "<group>"; };
 		3B9EF9BF2E9168D000728123 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		3B9EF9C12E9168D300728123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B9EF9C42E9168D300728123 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				23C28C992EB41C3B0094A20B /* Components */,
-				3B9EF98F2E915C3900728123 /* PhoneContentView.swift */,
 				234885F42EAE9ACA0028D73B /* HomeView.swift */,
 				231BDA732EAFFBA1004912E9 /* FlightDetailView.swift */,
 				2374E2B32EC246CA00EDD47A /* SettingsView.swift */,
@@ -257,18 +250,9 @@
 				2344FB9C2E9D52B300E010F9 /* App */,
 				2344FB9D2E9D52D700E010F9 /* Views */,
 				3B9EF9912E915C3C00728123 /* Assets.xcassets */,
-				3B9EF9932E915C3C00728123 /* Preview Content */,
 				236B28A32EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld */,
 			);
 			path = FlightMetricsApp;
-			sourceTree = "<group>";
-		};
-		3B9EF9932E915C3C00728123 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3B9EF9942E915C3C00728123 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		3B9EF99D2E915C3C00728123 /* FlightMetricsAppTests */ = {
@@ -289,17 +273,8 @@
 				2344FBA32E9D534300E010F9 /* Managers */,
 				2344FBA22E9D533900E010F9 /* Views */,
 				3B9EF9C12E9168D300728123 /* Assets.xcassets */,
-				3B9EF9C32E9168D300728123 /* Preview Content */,
 			);
 			path = "FlightMetricsAppWatch Watch App";
-			sourceTree = "<group>";
-		};
-		3B9EF9C32E9168D300728123 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3B9EF9C42E9168D300728123 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B9EF9952E915C3C00728123 /* Preview Assets.xcassets in Resources */,
 				3B9EF9922E915C3C00728123 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +396,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B9EF9C52E9168D300728123 /* Preview Assets.xcassets in Resources */,
 				3B9EF9C22E9168D300728123 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +413,6 @@
 				23C28C9B2EB41C5B0094A20B /* FlightMapView.swift in Sources */,
 				230AC6532ED61D38007320DC /* FlightBloodOxygenView.swift in Sources */,
 				236B28A52EAD57EB008112BD /* FlightMetricsApp.xcdatamodeld in Sources */,
-				3B9EF9902E915C3900728123 /* PhoneContentView.swift in Sources */,
 				236D18F92ED0F0470098E07F /* HealthAuthorizationManager.swift in Sources */,
 				231BDA742EAFFBA1004912E9 /* FlightDetailView.swift in Sources */,
 				23304D6A2EBF7B8B006FD28A /* FlightChartCardView.swift in Sources */,

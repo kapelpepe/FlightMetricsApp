@@ -26,7 +26,8 @@ class HealthAuthorizationManager {
             return
         }
 
-        let toShare: Set<HKSampleType> = [] // pusty blok share, bo nic nie zapisujemy spowrotem w danych zdrowotnych, wymagany przez funkcje requestAuth
+        let toShare: Set<HKSampleType> = [] // pusty blok share; nic nie zapisujemy w danych zdrowotnych; wymagany przez funkcje requestAuth
+        
         let toRead: Set<HKObjectType> = [heartRate, bloodOxygen]
         
         healthStore.requestAuthorization(toShare: toShare, read: toRead) { success, error in
