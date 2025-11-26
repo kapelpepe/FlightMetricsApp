@@ -21,7 +21,7 @@ struct FlightGForceView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Przeciążenie G")
+            Text("Przeciążenie")
                 .font(.title2)
                 .bold()
                 .foregroundColor(.appFirstAccent)

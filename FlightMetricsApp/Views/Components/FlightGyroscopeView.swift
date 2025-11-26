@@ -12,14 +12,14 @@ import Charts
 struct FlightGyroscopeView: View {
     var records: [FlightRecord]
     
-    private var yawData: [(Date, Double)] {
-        records.map { ($0.timestamp, $0.gz) }
+    private var rollData: [(Date, Double)] {
+        records.map { ($0.timestamp, $0.gx) }
     }
     private var pitchData: [(Date, Double)] {
         records.map { ($0.timestamp, $0.gy) }
     }
-    private var rollData: [(Date, Double)] {
-        records.map { ($0.timestamp, $0.gx) }
+    private var yawData: [(Date, Double)] {
+        records.map { ($0.timestamp, $0.gz) }
     }
     
     var body: some View {

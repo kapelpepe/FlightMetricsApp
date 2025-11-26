@@ -264,26 +264,10 @@ class SensorManager: NSObject, ObservableObject {
                 guard let self = self, let motion = motion, error == nil else { return }
                 self.gyroData = motion
                 
-                let currentTime = Date()
-                var deltaTime = 0.0
-                if let last = self.lastUpdateTime {
-                    deltaTime = currentTime.timeIntervalSince(last)
-                }
-                self.lastUpdateTime = currentTime
-                
-                let rollDeg = motion.attitude.roll * deltaTime * 180 / .pi
-                let pitchDeg = motion.attitude.pitch * deltaTime * 180 / .pi
-                let yawDeg = motion.attitude.yaw * deltaTime * 180 / .pi
-                
-                self.roll = rollDeg
-                self.pitch = pitchDeg
-                self.yaw = yawDeg
-                
-                
                 if self.isTracking, var last = self.currentFlightData.last {
-                    last.gx = motion.rotationRate.x
-                    last.gy = motion.rotationRate.y
-                    last.gz = motion.rotationRate.z
+                    last.gx = motion.attitude.roll * 180 / .pi
+                    last.gy = motion.attitude.pitch * 180 / .pi
+                    last.gz = motion.attitude.yaw * 180 / .pi
                     self.currentFlightData[self.currentFlightData.count - 1] = last
                 }
             }
@@ -319,9 +303,9 @@ extension SensorManager: CLLocationManagerDelegate { // rozszerzenie klasy o pro
         }
         
         if let gyro = gyroData {
-            newData.gx = gyro.rotationRate.x
-            newData.gy = gyro.rotationRate.y
-            newData.gz = gyro.rotationRate.z
+            newData.gx = gyro.attitude.roll * 180 / .pi
+            newData.gy = gyro.attitude.pitch * 180 / .pi
+            newData.gz = gyro.attitude.yaw * 180 / .pi
         }
         
         print("Update lokalizacji i dodanie nowych danych")
