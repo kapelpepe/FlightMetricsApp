@@ -92,6 +92,7 @@
 		236B28A42EAD57EB008112BD /* FlightMetricsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightMetricsApp.xcdatamodel; sourceTree = "<group>"; };
 		236D18F82ED0F0450098E07F /* HealthAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAuthorizationManager.swift; sourceTree = "<group>"; };
 		236D3A322ED7557D00F1E16E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		236D3A332ED7816600F1E16E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2374E2B12EC2302800EDD47A /* FlightGyroscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightGyroscopeView.swift; sourceTree = "<group>"; };
 		2374E2B32EC246CA00EDD47A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2388345E2EC7AAC800AA3DFB /* FlightMetricsAppWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlightMetricsAppWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -228,6 +229,7 @@
 		3B9EF9812E915C3900728123 = {
 			isa = PBXGroup;
 			children = (
+				236D3A332ED7816600F1E16E /* .gitignore */,
 				236D3A322ED7557D00F1E16E /* README.md */,
 				3B9EF98C2E915C3900728123 /* FlightMetricsApp */,
 				3B9EF99D2E915C3C00728123 /* FlightMetricsAppTests */,

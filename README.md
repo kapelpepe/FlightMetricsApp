@@ -39,23 +39,21 @@
 ---
 
 ## Struktura projektu
-
+```
 FlightMetricsApp/
 ├── FlightMetricsApp/ # Kod źródłowy aplikacji iOS
 ├── FlightMetricsAppTests/ # Testy jednostkowe
 ├── FlightMetricsAppWatch Watch App/ # Kod źródłowy aplikacji watchOS
 ├── README.md
-
+```
 ---
 
 ## Instalacja i uruchomienie
 
 1. Sklonuj repozytorium:
-
     ```bash
     git clone https://github.com/kapelpepe/FlightMetricsApp.git
     ```
-
 2. Otwórz projekt w Xcode (FlightMetricsApp.xcodeproj).
 
 3. Wybierz target iOS lub watchOS i uruchom aplikacje symulatorach lub urządzeniach fizycznych.
@@ -106,13 +104,13 @@ Aplikacja wymaga uprawnień do lokalizacji i odczytu danych HealthKit, aby popra
 ---
 
 ## Project Structure
-
+```
 FlightMetricsApp/
 ├── FlightMetricsApp/ # iOS application source code
 ├── FlightMetricsAppTests/ # Unit tests
 ├── FlightMetricsAppWatch Watch App/ # watchOS source code
 ├── README.md
-
+```
 ---
 
 ## Installation and running
